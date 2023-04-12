@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<!--
+	Author:     Subux
+	URL:        https://crimson.net/
+-->
+
+<html lang="en">
+	<head>
+
+		<!-- Title -->
+		<title>Download page |  Crimson </title>
+
+		<!-- Meta -->
+		<meta charset="utf-8">
+		<meta name="description" content="Download Creative Frontend Templates.">
+		<meta name="author" content="subux.uz">
+
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Google fonts (https://www.google.com/fonts) -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> <!-- Body font -->
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Secondary/Alter font -->
+
+		<!-- Libs and Plugins CSS -->
+		<link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css"> <!-- Normalize CSS (https://necolas.github.io/normalize.css/) -->
+		<link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css"> <!-- Font Icons CSS (https://fontawesome.com) Free version! -->
+		<link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css"> <!-- Swiper CSS (https://swiperjs.com/) -->
+		<link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css"> <!-- lightGallery CSS (http://sachinchoolur.github.io/lightGallery) -->
+
+		<!-- Template master CSS -->
+		<link rel="stylesheet" href="assets/css/helper.css">
+		<link rel="stylesheet" href="assets/css/shop.css"> <!-- Note: Used on shop-related pages only! -->
+		<link rel="stylesheet" href="assets/css/theme.css">
+
+	</head>
+	<!-- ===========
+	///// Body /////
+	================
+	* Use class "tt-boxed" to enable page boxed layout globally (affects all elements containing class "tt-wrap").
+	* Use class "tt-smooth-scroll" to enable page smooth scrolling.
+	* Use class "tt-transition" to enable page transitions.
+	* Use class "tt-magic-cursor" to enable magic cursor.
+	-->
+	<body id="body" class="tt-boxed tt-smooth-scroll tt-magic-cursor">
+
+
+		<!-- *************************************
+		*********** Begin body inner ************* 
+		************************************** -->
+		<main id="body-inner">
+
+			<!-- Begin page transition (do not remove!!!) 
+			=========================== -->
+			<div id="page-transition">
+				<div class="ptr-overlay"></div>
+				<div class="ptr-preloader">
+					<div class="ptr-prel-content">
+						<!-- Hint: You may need to change the img height and opacity to match your logo type. You can do this from the "theme.css" file (find: ".ptr-prel-image"). -->
+						<img src="assets/img/logo-light.png" class="ptr-prel-image tt-logo-light" alt="Logo">
+					</div> <!-- /.ptr-prel-content -->
+				</div> <!-- /.ptr-preloader -->
+			</div>
+			<!-- End page transition -->
+
+			<!-- Begin noise background -->
+			<div class="bg-noise"></div>
+			<!-- End noise background --> 
+
+
+			<!-- *****************************************
+			*********** Begin scroll container *********** 
+			****************************************** -->
+			<div id="scroll-container"> 
+				
+				<!-- ===================
+				///// Begin header /////
+				========================
+				* Use class "tt-header-fixed" to set header to fixed position.
+				-->
+				<header id="tt-header" class="tt-header-fixed">
+					<div class="tt-header-inner"> <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag!). Note: additionally you can use prepared helper class "max-width-*" to add custom width to "tt-wrap". Example: "max-width-1500" (class "tt-wrap" is still required!). More info about helper classes can be found in the file "helper.css". -->
+
+						<div class="tt-header-col">
+
+							<!-- Begin logo 
+							================ -->
+							<div class="tt-logo"> 
+								<a href="/">
+									<!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). -->
+									<img src="assets/img/logo.png" class="tt-logo-light magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo light -->
+									<img src="assets/img/logo.png" class="tt-logo-dark magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo dark -->
+								</a>
+							</div>
+							<!-- End logo -->
+
+						</div> <!-- /.tt-header-col -->
+
+						<div class="tt-header-col">
+							<!-- Begin header tools (use shop-related elements on shop-related pages only!)
+							======================== -->
+							<div class="tt-header-tools">
+
+								<!-- Begin header tools dynamic 
+								* Note: This container moves to page bottom on smaller screens to save space in the header. Useful if you have more elements to show. 
+								================================ -->
+								<div class="tt-header-tools-dynamic">
+
+									<!-- Begin header tools item (To shop list. Visible on small screens only!) -->
+									<div class="tt-header-tools-item to-shop-list-btn-wrap hide">
+										<div class="to-shop-list-btn">
+											<a href="/" class="tt-hti-btn to-shop-list-btn-icon magnetic-item" title="Shop">
+												<i class="fas fa-home"></i>
+											</a>
+										</div> <!-- /.to-shop-list-btn -->
+									</div> 
+									<!-- End header tools item -->
+
+									<!-- Begin header tools item (tt-Search) -->
+									<div class="tt-header-tools-item tt-search-trigger-wrap">
+
+										<div class="tt-search-trigger">
+											<div class="tt-hti-btn tt-search-trigger-icon magnetic-item" title="Search">
+												<i class="fas fa-search"></i>
+											</div>
+										</div> <!-- /.tt-search-trigger -->
+
+										<!-- Begin tt-Search 
+										===================== -->
+										<div class="tt-search">
+											<div class="tt-search-close cursor-close">
+												<div class="bg-noise"></div>
+											</div>
+											<div class="tt-search-inner">
+												<h1 class="tt-search-title tt-search-appear">Search</h1>
+
+												<!-- Begin form (Note: for design purposes only!)
+												================ 
+												* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
+												* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
+												-->
+												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
+													<div class="tt-form-btn-inside">
+														<input class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
+														<button type="submit"><i class="fas fa-search"></i></button>
+													</div>
+												</form>
+												 <!-- End form -->
+												
+											</div> <!-- /.tt-search-inner -->
+
+											<div class="tt-search-ghost tt-search-appear">Search</div>
+											<div class="tt-search-close-btn hide-cursor" title="Close"><i class="fas fa-times"></i></div>
+										</div>
+										<!-- End tt-Search -->
+
+									</div> 
+									<!-- End header tools item -->
+
+									
+
+								</div>
+								<!-- End header tools dynamic -->
+
+								<!-- Begin header tools item (Sliding cart) -->
+								<div class="tt-header-tools-item tt-sliding-cart-trigger-wrap">
+
+									<!-- Begin shop sliding cart 
+									============================= -->
+									<div class="tt-sliding-cart-wrap">
+										<div class="tt-sliding-cart">
+											<div class="tt-sliding-cart-inner">
+												<h4 class="tt-sliding-cart-heading">Shopping Cart</h4>
+												<div class="tt-sliding-cart-content tt-custom-scrollbar">
+
+													<!-- Begin shop sliding cart empty (use it if no products are on the shopping cart) 
+													=================================== -->
+													<!-- <div class="tt-sliding-cart-empty">
+														<div class="tt-sliding-cart-empty-icon"><i class="fas fa-shopping-cart"></i></div>
+														<div class="tt-sliding-cart-empty-text">No products added to the shopping cart.</div>
+													</div> -->
+													<!-- End shop sliding cart empty -->
+
+
+													<!-- Begin shop sliding cart product-list
+													========================================== -->
+													<ul class="tt-sliding-cart-product-list">
+														<li>
+															<div class="tt-sliding-cart-product">
+																<a href="/" class="tt-sc-product-thumb">
+																	<img src="assets/img/shop/small/product-2.jpg" alt="image">
+																</a> <!-- /.tt-sc-product-thumb -->
+																<div class="tt-sc-product-info">
+																	<a href="shop-single.html" class="tt-sc-product-title">Barbershop - Branding Mockups</a>
+																	<div class="tt-sc-product-variations">
+																		<div class="tt-scp-variation">License: <span>Regular</span></div>
+																	</div> <!-- /.tt-sc-product-variations -->
+																	<div class="tt-sc-product-quantity-pricing">
+																		<span class="tt-sc-product-quantity">1 x </span>
+																		<span class="tt-sc-product-price">
+																			<bdi>$21.00</bdi>
+																		</span>
+																	</div> <!-- /.tt-sc-product-quantity-pricing -->
+																	<a href="#" class="tt-sc-product-remove" title="Remove"><i class="fas fa-times"></i></a>
+																</div> <!-- /.tt-sc-product-info -->
+															</div> <!-- /.tt-sliding-cart-product -->
+														</li>
+
+														<li>
+															<div class="tt-sliding-cart-product">
+																<a href="#" class="tt-sc-product-thumb">
+																	<img src="assets/img/shop/small/product-1.jpg" alt="image">
+																</a> <!-- /.tt-sc-product-thumb -->
+																<div class="tt-sc-product-info">
+																	<a href="shop-single.html" class="tt-sc-product-title">Dash - Branding Mockup Templates</a>
+																	<div class="tt-sc-product-variations">
+																		<div class="tt-scp-variation">License: <span>Regular</span></div>
+																	</div> <!-- /.tt-sc-product-variations -->
+																	<div class="tt-sc-product-quantity-pricing">
+																		<span class="tt-sc-product-quantity">1 x </span>
+																		<span class="tt-sc-product-price">
+																			<bdi>$21.00</bdi>
+																		</span>
+																	</div> <!-- /.tt-sc-product-quantity-pricing -->
+																	<a href="#" class="tt-sc-product-remove" title="Remove"><i class="fas fa-times"></i></a>
+																</div> <!-- /.tt-sc-product-info -->
+															</div> <!-- /.tt-sliding-cart-product -->
+														</li>
+													</ul> 
+													<!-- End shop sliding cart product-list -->
+
+												</div> <!-- /.tt-sliding-cart-content -->
+
+												<div class="tt-sliding-cart-footer">
+													<div class="tt-sliding-cart-total">
+														Subtotal: <bdi>$42.00</bdi>
+													</div> <!-- /.tt-sliding-cart-total -->
+													<div class="tt-btn tt-btn-light-outline tt-btn-block">
+														<a href="shop-cart.html" data-hover="View Cart">View Cart</a>
+													</div>
+													<div class="tt-btn tt-btn-primary tt-btn-block">
+														<a href="shop-checkout.html" data-hover="Checkout">Checkout</a>
+													</div>
+												</div> <!-- /.tt-sliding-cart-footer -->
+											</div> <!-- /.tt-sliding-cart-inner -->
+
+											<div class="tt-sliding-cart-close hide-cursor" title="Close"><i class="fas fa-times"></i></div>
+										</div> <!-- /.tt-sliding-cart -->
+
+										<div class="tt-sliding-cart-cover cursor-close"></div>
+									</div>
+									<!-- End shop sliding cart -->
+
+								</div>
+								<!-- End header tools item -->
+
+							</div>
+							<!-- End header tools -->
+
+						</div> <!-- /.header-col -->
+					</div> <!-- /.header-inner -->
+				</header>
+				<!-- End header -->
+
+				
+				<!-- *************************************
+				*********** Begin content wrap *********** 
+				************************************** -->
+				<div id="content-wrap">
+
+					
+					<!-- *************************************
+					*********** Begin page content *********** 
+					************************************** -->
+					<div id="page-content">
+
+
+						<!-- =======================
+						///// Begin tt-section /////
+						============================ 
+						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
+						-->
+						<div class="tt-section padding-top-lg-200 padding-top-130">
+							<div class="tt-section-inner tt-wrap">
+
+								<div class="tt-row">
+									<div class="tt-col-lg-6 tt-col-xxl-7">
+
+										<!-- Begin single product image (use if there is only one image!) 
+										================================ -->
+										<!-- <div class="sps-single-image lightgallery">
+											<a href="https://demo.themetorium.net/html/waldo/assets/img/shop/shop-single/shop-single-1.jpg" class="sps-image lg-trigger" data-cursor="Zoom">
+												<img src="https://demo.themetorium.net/html/waldo/assets/img/shop/shop-single/shop-single-1.jpg" alt="image" />
+											</a>
+											<div class="single-product-sale-padge">Sale!</div>
+										</div> -->
+										<!-- End single product image -->
+
+
+										<!-- Begin single product slider wrap (use if there is more than one image!)
+										====================================== 
+										* Hint: For better user experience, use images with the same dimensions.
+										-->
+										<div class="single-product-slider-wrap">
+											<div class="single-product-slider lightgallery">
+
+												<!-- Begin swiper container -->
+												<div class="swiper">
+
+													<!-- Begin swiper wrapper (required) -->
+													<div class="swiper-wrapper">
+
+														<div class="swiper-slide">
+															<a href="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" class="sps-image lg-trigger">
+																<img class="swiper-lazy" src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" alt="image" />
+															</a> <!-- /.sps-image -->
+														</div> <!-- /.swiper-slide -->
+
+													</div>
+													<!-- End swiper wrapper -->
+
+												</div>
+												<!-- End swiper container -->
+
+											</div> 
+											<!-- End single product slider -->
+
+
+											<!-- Begin single product padges -->
+											<!-- <div class="single-product-padges">
+												<div class="sp-padge sp-sale-padge" title="Sale">-16%</div>
+												<div class="sp-padge sp-new-padge" title="New product">New</div>
+												<div class="sp-padge sp-hot-padge" title="Featured product">Hot!</div>
+											</div> -->
+											<!-- End single product padges -->
+
+										</div>
+										<!-- End single product slider wrap -->
+
+									</div> <!-- /.tt-col -->
+
+									<div class="tt-col-lg-6 tt-col-xxl-5">
+
+										<!-- Begin single product summary 
+										================================== -->
+										<div class="single-product-summary">
+
+											<h1 class="single-product-title">Coding- My Love and Life</h1>
+
+											<div class="tt-row">
+												<div class="tt-col-sm-6">
+
+													<!-- Begin single product price -->
+													<div class="single-product-price">
+														<bdi>$0</bdi>
+														<!-- <ins class="single-product-current-price"><bdi>$21.00</bdi></ins>
+														<del class="single-product-old-price"><bdi>$25.00</bdi></del> -->
+													</div>
+													<!-- End single product price -->
+
+													<!-- Begin single product availability -->
+													<div class="single-product-availability">
+														<span class="spa-in-stock">CSS</span>
+														<!-- <span class="spa-out-of-stock">Out of stock</span> -->
+													</div>
+													<!-- End single product availability -->
+
+												</div> <!-- /.col -->
+											</div> <!-- /.row -->
+
+											<!-- Begin single product short description -->
+											<!-- <div class="single-product-short-description">
+												<p>Up or well must less rent read walk so be. Easy sold at do hour sing spot. Any meant has cease too the decay. Since party burst am it match. By or blushes between besides.</p>
+											</div> -->
+											<!-- End single product short description -->
+
+											<!-- Begin single product form 
+											===============================
+											* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
+											-->
+											<form class="single-product-form tt-form-minimal">
+
+												<!-- End single product variations -->
+
+												<!-- Begin single product add to cart 
+												====================================== -->
+												<div class="single-product-add-to-cart">
+													<!-- Begin single download button -->
+													<div class="single-product-adc-button">
+														<button type="submit" class="sp-adc-btn">
+															<a href="https://github.com/python019/finance-projects-python/archive/refs/heads/bitcoin-miner.zip" class="sp-adc-btn-text" data-hover="Download">Download</a>
+														</button>
+													</div>
+													<!-- End single download button -->
+												</div>
+												<!-- End single product add to cart -->
+
+											</form>
+											<!-- End single product form -->
+
+											<!-- Begin single product additional buttons 
+											============================================= -->
+											<div class="single-product-additional-buttons">
+												<div class="spr-addit-elem">
+													<a href="#" class="spr-addit-btn spr-add-to-wishlist-btn" title="Add to wishlist"><span><i class="far fa-heart"></i></span>Add to wishlist</a>
+													<div class="spr-addit-btn spr-add-to-wishlist-btn-filled" title="Browse wishlist"><span><i class="fas fa-heart"></i></span><a href="shop-wishlist.html">Browse wishlist</a></div>
+												</div>
+												<!-- <div class="spr-addit-elem">
+													<a href="#" class="spr-addit-btn spr-add-to-compare-btn" title="Compare"><span><i class="fas fa-retweet"></i></span>Compare</a>
+													<div class="spr-addit-btn spr-add-to-compare-btn-filled" title="Browse compare list"><span><i class="fas fa-retweet"></i></span><a href="">Browse compare list</a></div>
+												</div> -->
+											</div>
+											<!-- End single product additional buttons -->
+
+											<!-- Begin single product meta 
+											=============================== -->
+											<div class="single-product-meta">
+												<div class="single-product-sku">SKU: <span class="sku">MU-0098</span></div>
+												<div class="single-product-categories">
+													Category: 
+													<a href="shop-list.html">Branding</a>
+													<!-- <a href="">Varia</a> -->
+												</div>
+												<div class="single-product-tags">
+													Tags: 
+													<a href="">#mockup</a> 
+													<a href="">#artwork</a> 
+													<a href="">#design</a>
+												</div>
+											</div>
+											<!-- End single product meta -->
+
+											<!-- Begin single product share 
+											================================-->
+											<div class="single-product-share">
+												<div class="social-buttons">
+													<ul>
+														<li>Share:</li>
+														<li><a href="#0" class="magnetic-item" title="Share on Facebook"><i class="fab fa-github"></i></a></li>
+														<li><a href="#0" class="magnetic-item" title="Share on Twitter"><i class="fab fa-twitter"></i></a></li>
+														<li><a href="#0" class="magnetic-item" title="Share on Pinterest"><i class="fab fa-pinterest"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- End single product share -->
+										</div>
+										<!-- End single product summary -->
+
+									</div> <!-- /.tt-col -->
+								</div> <!-- /.tt-row -->
+
+							</div> <!-- /.tt-section-inner -->
+						</div>
+						<!-- End tt-section -->
+
+
+						<!-- =======================
+						///// Begin tt-section /////
+						============================ 
+						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
+						-->
+						<div id="tt-product-tabs-section" class="tt-section padding-top-lg-40 no-padding-top">
+							<div class="tt-section-inner tt-wrap">
+
+								<!-- Begin tt-Tabs 
+								==================== 
+								* Use class "tt-tabs-minimal" to enable tabs minimal style (no class = default style).
+								* Use class "tt-tabs-justified" to enable tabs justified style (not recommended if you have many tabs!).
+								* Important: class "tt-tabs" is required!
+								-->
+								<div class="tt-tabs single-product-tabs tt-tabs-justified">
+
+									<!-- Begin tt-Tabs buttons 
+									===========================
+									* Note: Make sure the "data-content-id" and tab content "id" are identical and unique!
+									-->
+									<div class="tt-tabs-buttons">
+										<ul>
+											<li><button class="tt-tab-btn sp-description-tab active" data-content-id="sp-description-content">Description</button></li>
+											<li><button class="tt-tab-btn sp-addit-info-tab" data-content-id="sp-addit-info-content">Additional Info</button></li>
+											<li><button class="tt-tab-btn sp-custom-tab" data-content-id="sp-custom-content-1">License</button></li>
+										</ul>
+									</div>
+									<!-- End tt-Tabs buttons -->
+
+									<!-- Begin tt-Tabs content wrap 
+									================================ -->
+									<div class="tt-tab-content-wrap">
+
+										<!-- Begin tab content -->
+										<div id="sp-description-content" class="tt-tab-content active">
+											<p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.</p>
+
+											<p>Design by: <a href="https://subux.uz/" target="_blank" rel="noopener">subux.uz</a></p>
+										</div>
+										<!-- End tab content -->
+
+										<!-- Begin tab content -->
+										<div id="sp-addit-info-content" class="tt-tab-content">
+											
+											<!-- Begin tt-Table 
+											==================== -->
+											<table class="tt-table">
+												<tbody>
+													<tr>
+														<th>High Resolution:</th>
+														<td>Yes</td>
+													</tr>
+													<tr>
+														<th>Layered:</th>
+														<td>Yes</td>
+													</tr>
+													<tr>
+														<th>Graphics Files Included:</th>
+														<td>Photoshop PSD, JPG Images</td>
+													</tr>
+													<tr>
+														<th>Pixel Dimensions:</th>
+														<td>5600x4000</td>
+													</tr>
+													<tr>
+														<th>Print Dimensions:</th>
+														<td>5600x4000</td>
+													</tr>
+												</tbody>
+											</table>
+											<!-- End tt-Table -->
+
+										</div>
+										<!-- End tab content -->
+
+										<!-- Begin tab content -->
+										<div id="sp-custom-content-1" class="tt-tab-content">
+											<h6>Regular License:</h6>
+											<p>Building mr concerns servants in he outlived am breeding. He so lain good miss when sell some at if. Told hand so an rich gave next. How doubt yet again see son smart. While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old.</p>
+
+											<h6>Extended License:</h6>
+											<p>Turned it up should no valley cousin he. Speaking numerous ask did horrible packages set. Ashamed herself has distant can studied mrs. Led therefore its middleton perpetual fulfilled provision frankness. Small he drawn after among every three no. All having but you edward genius though remark one.</p>
+										</div>
+										<!-- End tab content -->
+
+									</div>
+									<!-- End tt-Tabs content wrap -->
+
+								</div>
+								<!-- End tt-Tabs -->
+
+							</div> <!-- /.tt-section-inner -->
+						</div>
+						<!-- End tt-section -->
+
+
+					</div>
+					<!-- End page content -->
+					
+					<!-- ======================
+					///// Begin tt-footer /////
+					=========================== -->
+					<footer id="tt-footer">
+						<div class="tt-footer-inner">
+
+							<!-- Begin footer column 
+							========================= -->
+							<div class="footer-col tt-align-center-left">
+								<div class="footer-col-inner">
+
+									<!-- You can use whatever button or link here -->
+									<div class="tt-btn tt-btn-link">
+										<a href="#" class="scroll-to-top" data-hover="Back to top">Back to top</a>
+									</div>
+
+								</div> <!-- /.footer-col-inner -->
+							</div>
+							<!-- Begin footer column -->
+
+							<!-- Begin footer column 
+							========================= -->
+							<div class="footer-col tt-align-center order-m-last">
+								<div class="footer-col-inner">
+
+									<div class="tt-copyright">
+										© Copyright - <a href="https://subux.uz" target="_blank" rel="noopener" class="tt-link">SUBUX</a>
+									</div>
+
+								</div> <!-- /.footer-col-inner -->
+							</div>
+							<!-- Begin footer column -->
+
+							<!-- Begin footer column 
+							========================= -->
+							<div class="footer-col tt-align-center-right">
+								<div class="footer-col-inner">
+
+									<div class="footer-social">
+										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
+										<div class="social-buttons">
+											<ul>
+												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
+												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+											</ul>
+										</div> <!-- /.social-buttons -->
+									</div> <!-- /.footer-social -->
+
+								</div> <!-- /.footer-col-inner -->
+							</div>
+							<!-- Begin footer column -->
+
+						</div> <!-- /.tt-section-inner -->
+					</footer>
+					<!-- End tt-footer -->
+
+
+				</div>
+				<!-- End content wrap -->
+
+			</div>
+			<!-- End scroll container -->
+
+
+		</main>
+		<!-- End body inner -->
+
+
+        
+
+		<!-- ====================
+		///// Scripts below /////
+		===================== -->
+
+		<!-- Core JS -->
+		<script src="assets/vendor/jquery/jquery.min.js"></script> <!-- jquery JS (https://jquery.com) -->
+
+		<!-- Libs and Plugins JS -->
+		<script src="assets/vendor/gsap/gsap.min.js"></script> <!-- GSAP JS (https://greensock.com/gsap/) -->
+		<script src="assets/vendor/gsap/ScrollToPlugin.min.js"></script> <!-- GSAP ScrollToPlugin JS (https://greensock.com/scrolltoplugin/) -->
+		<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script> <!-- GSAP ScrollTrigger JS (https://greensock.com/scrolltrigger/) -->
+
+		<script src="assets/vendor/smooth-scrollbar.js"></script> <!-- Smooth Scrollbar JS (https://github.com/idiotWu/smooth-scrollbar/) -->
+		<script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script> <!-- Swiper JS (https://swiperjs.com/) -->
+		<script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script> <!-- imagesloaded JS (more info: https://imagesloaded.desandro.com/) -->
+		<script src="assets/vendor/isotope/isotope.pkgd.min.js"></script> <!-- Isotope JS (http://isotope.metafizzy.co) -->
+		<script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script> <!-- Isotope Packery Mode JS (https://isotope.metafizzy.co/layout-modes/packery.html) -->
+		<script src="assets/vendor/lightgallery/js/lightgallery-all.min.js"></script> <!-- lightGallery Plugins JS (http://sachinchoolur.github.io/lightGallery) -->
+		<script src="assets/vendor/jquery.mousewheel.min.js"></script> <!-- A jQuery plugin that adds cross browser mouse wheel support (https://github.com/jquery/jquery-mousewheel) -->
+
+		<!-- Theme master JS -->
+		<script src="assets/js/shop.js"></script> <!-- Note: Used on shop-related pages only! -->
+		<script src="assets/js/theme.js"></script>
+
+
+
+	</body>
+
+</html>
