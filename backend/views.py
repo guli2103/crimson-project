@@ -11,3 +11,13 @@ def about(request):
 
 def xato404(request):
     return render(request, '404.html')
+
+def about_p(request):
+    return render(request, 'about-p.html')
+
+def category(request):
+    return render(request, 'detail-category.html')
+
+
+
+
