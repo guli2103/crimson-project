@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 
 <!--
@@ -32,15 +33,15 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet"> <!-- Secondary/Alter font -->
 
 		<!-- Libs and Plugins CSS -->
-		<link rel="stylesheet" href="assets/vendor/normalize/normalize.min.css"> <!-- Normalize CSS (https://necolas.github.io/normalize.css/) -->
-		<link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome-all.min.css"> <!-- Font Icons CSS (https://fontawesome.com) Free version! -->
-		<link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css"> <!-- Swiper CSS (https://swiperjs.com/) -->
-		<link rel="stylesheet" href="assets/vendor/lightgallery/css/lightgallery.min.css"> <!-- lightGallery CSS (http://sachinchoolur.github.io/lightGallery) -->
+		<link rel="stylesheet" href="{% static 'vendor/normalize/normalize.min.css' %}"> <!-- Normalize CSS (https://necolas.github.io/normalize.css/) -->
+		<link rel="stylesheet" href="{% static 'vendor/fontawesome/css/fontawesome-all.min.css' %}"> <!-- Font Icons CSS (https://fontawesome.com) Free version! -->
+		<link rel="stylesheet" href="{% static 'vendor/swiper/css/swiper-bundle.min.css' %}"> <!-- Swiper CSS (https://swiperjs.com/) -->
+		<link rel="stylesheet" href="{% static 'vendor/lightgallery/css/lightgallery.min.css' %}"> <!-- lightGallery CSS (http://sachinchoolur.github.io/lightGallery) -->
 
 		<!-- Template master CSS -->
-		<link rel="stylesheet" href="assets/css/helper.css">
-		<link rel="stylesheet" href="assets/css/shop.css">
-		<link rel="stylesheet" href="assets/css/theme.css">
+		<link rel="stylesheet" href="{% static 'css/helper.css' %}">
+		<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+		<link rel="stylesheet" href="{% static 'css/theme.css' %}">
 
 	</head>
 
@@ -68,7 +69,7 @@
 				<div class="ptr-preloader">
 					<div class="ptr-prel-content">
 						<!-- Hint: You may need to change the img height and opacity to match your logo type. You can do this from the "theme.css" file (find: ".ptr-prel-image"). -->
-						<img src="assets/img/logo-l.png" class="ptr-prel-image tt-logo-light" alt="Logo">
+						<img src="{% static 'img/logo-l.png' %}" class="ptr-prel-image tt-logo-light" alt="Logo">
 					</div> <!-- /.ptr-prel-content -->
 				</div> <!-- /.ptr-preloader -->
 			</div>
@@ -98,8 +99,8 @@
 							<div class="tt-logo"> 
 								<a href="/">
 									<!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). -->
-									<img src="assets/img/logo.png" class="tt-logo-light magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo light -->
-									<img src="assets/img/logo.png" class="tt-logo-dark magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo dark -->
+									<img src="{% static 'img/logo.png' %}" class="tt-logo-light magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo light -->
+									<img src="{% static 'img/logo.png' %}" class="tt-logo-dark magnetic-item" style="width: 150px;" alt="Crimson"> <!-- logo dark -->
 								</a>
 							</div>
 							<!-- End logo -->
@@ -197,7 +198,7 @@
 														<li>
 															<div class="tt-sliding-cart-product">
 																<a href="/" class="tt-sc-product-thumb">
-																	<img src="assets/img/shop/small/product-2.jpg" alt="image">
+																	<img src="{% static 'img/shop/small/product-2.jpg' %}" alt="image">
 																</a> <!-- /.tt-sc-product-thumb -->
 																<div class="tt-sc-product-info">
 																	<a href="shop-single.html" class="tt-sc-product-title">Barbershop - Branding Mockups</a>
@@ -218,7 +219,7 @@
 														<li>
 															<div class="tt-sliding-cart-product">
 																<a href="#" class="tt-sc-product-thumb">
-																	<img src="assets/img/shop/small/product-1.jpg" alt="image">
+																	<img src="{% static 'img/shop/small/product-1.jpg' %}" alt="image">
 																</a> <!-- /.tt-sc-product-thumb -->
 																<div class="tt-sc-product-info">
 																	<a href="shop-single.html" class="tt-sc-product-title">Dash - Branding Mockup Templates</a>
@@ -299,7 +300,7 @@
 							============================= -->
 							<div class="ph-image">
 								<div class="ph-image-inner">
-									<img src="assets/img/page-header/ph-4.jpg" alt="Image">
+									<img src="{% static 'img/page-header/ph-4.jpg' %}" alt="Image">
 								</div>
 							</div>
 							<!-- End page header image -->
@@ -423,7 +424,7 @@
 											<div class="swiper-slide">
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="assets/img/low-qlt-thumb.jpg" data-src="assets/img/misc/misc-1.jpg" alt="Image">
+														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-1.jpg" alt="Image">
 														<!-- <figcaption>Image Caption</figcaption> -->
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -435,7 +436,7 @@
 											<div class="swiper-slide">
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="assets/img/low-qlt-thumb.jpg" data-src="assets/img/misc/misc-2.jpg" alt="Image">
+														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-2.jpg" alt="Image">
 														<!-- <figcaption>Image Caption</figcaption> -->
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -448,8 +449,8 @@
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
 														<video class="tt-cc-video" loop muted preload="metadata" poster="assets/vids/office-team.jpg">
-															<source src="assets/vids/office-team.mp4" type="video/mp4">
-															<source src="assets/vids/office-team.webm" type="video/webm">
+															<source src="{% static 'vids/office-team.mp4' %}" type="video/mp4">
+															<source src="{% static 'vids/office-team.webm' %}" type="video/webm">
 														</video>
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -461,7 +462,7 @@
 											<div class="swiper-slide">
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="assets/img/low-qlt-thumb.jpg" data-src="assets/img/misc/misc-3.jpg" alt="Image">
+														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-3.jpg" alt="Image">
 														<!-- <figcaption>Image Caption</figcaption> -->
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -473,7 +474,7 @@
 											<div class="swiper-slide">
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="assets/img/low-qlt-thumb.jpg" data-src="assets/img/misc/misc-4.jpg" alt="Image">
+														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-4.jpg" alt="Image">
 														<!-- <figcaption>Image Caption</figcaption> -->
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -485,7 +486,7 @@
 											<div class="swiper-slide">
 												<div class="tt-content-carousel-item">
 													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="assets/img/low-qlt-thumb.jpg" data-src="assets/img/misc/misc-5.jpg" alt="Image">
+														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-5.jpg" alt="Image">
 														<!-- <figcaption>Image Caption</figcaption> -->
 													</figure>
 												</div> <!-- /.tt-content-carousel-item -->
@@ -833,7 +834,7 @@
 
 									<!-- Use if destination page contains page header image -->
 									<div class="tt-pn-image">
-										<img src="assets/img/page-header/ph-1.jpg" alt="image">
+										<img src="{% static 'img/page-header/ph-1.jpg' %}" alt="image">
 									</div>
 								</div>
 								<!-- End page nav -->
@@ -922,23 +923,23 @@
 		===================== -->
 
 		<!-- Core JS -->
-		<script src="assets/vendor/jquery/jquery.min.js"></script> <!-- jquery JS (https://jquery.com) -->
+		<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script> <!-- jquery JS (https://jquery.com) -->
 
 		<!-- Libs and Plugins JS -->
-		<script src="assets/vendor/gsap/gsap.min.js"></script> <!-- GSAP JS (https://greensock.com/gsap/) -->
-		<script src="assets/vendor/gsap/ScrollToPlugin.min.js"></script> <!-- GSAP ScrollToPlugin JS (https://greensock.com/scrolltoplugin/) -->
-		<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script> <!-- GSAP ScrollTrigger JS (https://greensock.com/scrolltrigger/) -->
+		<script src="{% static 'vendor/gsap/gsap.min.js' %}"></script> <!-- GSAP JS (https://greensock.com/gsap/) -->
+		<script src="{% static 'vendor/gsap/ScrollToPlugin.min.js' %}"></script> <!-- GSAP ScrollToPlugin JS (https://greensock.com/scrolltoplugin/) -->
+		<script src="{% static 'vendor/gsap/ScrollTrigger.min.js' %}"></script> <!-- GSAP ScrollTrigger JS (https://greensock.com/scrolltrigger/) -->
 
-		<script src="assets/vendor/smooth-scrollbar.js"></script> <!-- Smooth Scrollbar JS (https://github.com/idiotWu/smooth-scrollbar/) -->
-		<script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script> <!-- Swiper JS (https://swiperjs.com/) -->
-		<script src="assets/vendor/isotope/imagesloaded.pkgd.min.js"></script> <!-- imagesloaded JS (more info: https://imagesloaded.desandro.com/) -->
-		<script src="assets/vendor/isotope/isotope.pkgd.min.js"></script> <!-- Isotope JS (http://isotope.metafizzy.co) -->
-		<script src="assets/vendor/isotope/packery-mode.pkgd.min.js"></script> <!-- Isotope Packery Mode JS (https://isotope.metafizzy.co/layout-modes/packery.html) -->
-		<script src="assets/vendor/lightgallery/js/lightgallery-all.min.js"></script> <!-- lightGallery Plugins JS (http://sachinchoolur.github.io/lightGallery) -->
-		<script src="assets/vendor/jquery.mousewheel.min.js"></script> <!-- A jQuery plugin that adds cross browser mouse wheel support (https://github.com/jquery/jquery-mousewheel) -->
+		<script src="{% static 'vendor/smooth-scrollbar.js' %}"></script> <!-- Smooth Scrollbar JS (https://github.com/idiotWu/smooth-scrollbar/) -->
+		<script src="{% static 'vendor/swiper/js/swiper-bundle.min.js' %}"></script> <!-- Swiper JS (https://swiperjs.com/) -->
+		<script src="{% static 'vendor/isotope/imagesloaded.pkgd.min.js' %}"></script> <!-- imagesloaded JS (more info: https://imagesloaded.desandro.com/) -->
+		<script src="{% static 'vendor/isotope/isotope.pkgd.min.js' %}"></script> <!-- Isotope JS (http://isotope.metafizzy.co) -->
+		<script src="{% static 'vendor/isotope/packery-mode.pkgd.min.js' %}"></script> <!-- Isotope Packery Mode JS (https://isotope.metafizzy.co/layout-modes/packery.html) -->
+		<script src="{% static 'vendor/lightgallery/js/lightgallery-all.min.js' %}"></script> <!-- lightGallery Plugins JS (http://sachinchoolur.github.io/lightGallery) -->
+		<script src="{% static 'vendor/jquery.mousewheel.min.js' %}"></script> <!-- A jQuery plugin that adds cross browser mouse wheel support (https://github.com/jquery/jquery-mousewheel) -->
 
 		<!-- Theme master JS -->
-		<script src="assets/js/theme.js"></script>
+		<script src="{% static 'js/theme.js' %}"></script>
 
 
 
