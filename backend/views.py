@@ -19,5 +19,14 @@ def category(request):
     return render(request, 'detail-category.html')
 
 
+def details(request): 
+    return render(request, 'details.html')
+
+
+def shop(request):
+    return render(request, 'shop.html')
+
+
+
 
 
