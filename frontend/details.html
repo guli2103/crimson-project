@@ -123,38 +123,34 @@
 									<div class="tt-header-tools-item tt-search-trigger-wrap">
 
 										<div class="tt-search-trigger">
-											<div class="tt-hti-btn tt-search-trigger-icon magnetic-item" title="Search">
-												<i class="fas fa-search"></i>
+											<div class="tt-hti-btn tt-search-trigger-icon magnetic-item" onclick="back()" title="Search">
+												back
 											</div>
-										</div> <!-- /.tt-search-trigger -->
+										</div>
+										 <!-- /.tt-search-trigger -->
 
 										<!-- Begin tt-Search 
 										===================== -->
-										<div class="tt-search">
+										<!-- <div class="tt-search">
 											<div class="tt-search-close cursor-close">
 												<div class="bg-noise"></div>
 											</div>
 											<div class="tt-search-inner">
 												<h1 class="tt-search-title tt-search-appear">Search</h1>
 
-												<!-- Begin form (Note: for design purposes only!)
-												================ 
-												* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-												* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
-												-->
 												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
 													<div class="tt-form-btn-inside">
 														<input class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
 														<button type="submit"><i class="fas fa-search"></i></button>
 													</div>
 												</form>
-												 <!-- End form -->
+											
 												
-											</div> <!-- /.tt-search-inner -->
+											</div> 
 
 											<div class="tt-search-ghost tt-search-appear">Search</div>
 											<div class="tt-search-close-btn hide-cursor" title="Close"><i class="fas fa-times"></i></div>
-										</div>
+										</div> -->
 										<!-- End tt-Search -->
 
 									</div> 
@@ -631,6 +627,11 @@
 		===================== -->
 
 		<!-- Core JS -->
+		<script>
+			function back(){
+				window.history.back()
+			}
+		</script>
 		<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script> <!-- jquery JS (https://jquery.com) -->
 
 		<!-- Libs and Plugins JS -->
