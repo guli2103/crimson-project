@@ -354,6 +354,7 @@
 								* Use class "bli-image-cropped" to grop blog list item images (set fixed height).
 								* Use class "bli-compact" to enable compact blog list style. Note: If "tt-sidebar" is used, then add more width to "tt-section-inner", for example "max-width-1600".
 								-->
+								{% for post in posts %}
 								<div id="blog-list" class="bli-image-cropped bli-compact">
 
 									<!-- Begin blog list item 
@@ -363,7 +364,7 @@
 										<!-- Begin blog list item image -->
 										<a href="{% url 'details' %}" class="bli-image-wrap" data-cursor="Read<br>More">
 											<figure class="bli-image">
-												<img src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" data-src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" class="tt-lazy anim-zoomin" alt="Image">
+												<img src="{{ post.img }}" data-src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" class="tt-lazy anim-zoomin" alt="Image">
 											</figure>
 										</a>
 										<!-- End blog list item image -->
@@ -371,13 +372,13 @@
 										<!-- Begin blog list item info -->
 										<div class="bli-info"><style>.bli-info:before { content: "CSS";}</style>
 											<div class="bli-categories">
-												<a href="blog-archive.html">Amazing</a>
+												<a href="blog-archive.html"> {{ post.category }} </a>
 												<!-- <a href="blog-archive.html">Uncategorized</a> -->
 											</div>
-											<h2 class="bli-title"><a href="{% url 'details' %}">Coding to Improve Your Creativity and others..</a></h2>
+											<h2 class="bli-title"><a href="{% url 'details' %}"> {{ post.name }} </a></h2>
 											<div class="bli-meta">
-												<span class="published">Dec 08, 2022</span>
-												<span class="posted-by">- by <a href="about-p.html" title="View all posts by John Doe">Jumayev Ubaydullo</a></span>
+												<span class="published"> {{ post.date }} </span>
+												<span class="posted-by">- by <a href="about-p.html" title="View all posts by John Doe"> {{ post.username }} </a></span>
 											</div>
 											<div class="bli-read-more tt-btn tt-btn-link">
 												<a href="{% url 'details' %}" data-hover="Read More">Read More</a>
@@ -389,6 +390,7 @@
 									<!-- End blog list item -->
 
 								</div>
+								{% endfor %}
 								<!-- End blog list -->
 
 

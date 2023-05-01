@@ -29,7 +29,7 @@ class Post(models.Model):
     name = models.CharField(max_length=255)
     date1 = models.DateField(auto_now_add=False)
     username = models.CharField(max_length=255)
-    img = models.ImageField(upload_to='img/', default='img/moychechal.jpg', null=True, blank= True)
+    img = models.ImageField(upload_to='img/', default='img/img.jpg', null=True, blank= True)
     down = models.FileField(upload_to='media')
     life = models.CharField(max_length=255)
     category = models.ManyToManyField(ManyCategory, blank=True)
