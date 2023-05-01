@@ -1,16 +1,51 @@
 from django.db import models
 
+class ManyCategory(models.Model):
+    category = models.CharField(max_length=255)
+
+    def __str__(self):
+        return  self.namecategory
+    
+class ManyTags(models.Model):
+    tags = models.CharField(max_length=255)
+
+    def __str__(self):
+        return  self.tags    
+    
+class ManyBrowzers(models.Model):
+    browzers = models.CharField(max_length=255)
+
+    def __str__(self):
+        return  self.browzers   
+
+class Manylanguages(models.Model):
+    languages = models.CharField(max_length=255)
+
+    def __str__(self):
+        return  self.languages        
+
+
 class Post(models.Model):
     name = models.CharField(max_length=255)
-    date = models.DateField(auto_now_add=False)
+    date1 = models.DateField(auto_now_add=False)
     username = models.CharField(max_length=255)
     img = models.ImageField(upload_to='img/', default='img/moychechal.jpg', null=True, blank= True)
+    down = models.FileField(upload_to='media')
+    life = models.CharField(max_length=255)
+    category = models.ManyToManyField(ManyCategory, blank=True)
+    tags = models.ManyToManyField(ManyTags, blank=True)
+    resolution = models.BooleanField(default=False)
+    browsers = models.ManyToManyField(ManyBrowzers, blank=True)
+    date2 = models.DateField(auto_now=False)
+    github = models.CharField(max_length=255)
+    languages = models.ManyToManyField(Manylanguages, blank=True)
+    layout = models.BooleanField(default=False)
+    slug = models.SlugField(max_length=255, unique=True)
 
 
     def __str__(self):
-        return self.username
+        return self.name
     
 
-class TopPost(models.Model):
-    life = models.CharField(max_length=255)
+
     
