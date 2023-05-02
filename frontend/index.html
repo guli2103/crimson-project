@@ -362,9 +362,9 @@
 									<article class="blog-list-item">
 								
 										<!-- Begin blog list item image -->
-										<a href="{% url 'details' %}" class="bli-image-wrap" data-cursor="Read<br>More">
+										<a href="details/{{ post.slug }}" class="bli-image-wrap" data-cursor="Read<br>More">
 											<figure class="bli-image">
-												<img src="{{ post.img }}" data-src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" class="tt-lazy anim-zoomin" alt="Image">
+												<img src="{{ post.img }}" data-src="{{ post.img }}" class="tt-lazy anim-zoomin" alt="Image">
 											</figure>
 										</a>
 										<!-- End blog list item image -->
@@ -375,13 +375,13 @@
 												<a href="blog-archive.html"> {{ post.category }} </a>
 												<!-- <a href="blog-archive.html">Uncategorized</a> -->
 											</div>
-											<h2 class="bli-title"><a href="{% url 'details' %}"> {{ post.name }} </a></h2>
+											<h2 class="bli-title"><a href="details/{{ post.slug }}"> {{ post.name }} </a></h2>
 											<div class="bli-meta">
-												<span class="published"> {{ post.date }} </span>
+												<span class="published"> {{ post.date1 }} </span>
 												<span class="posted-by">- by <a href="about-p.html" title="View all posts by John Doe"> {{ post.username }} </a></span>
 											</div>
 											<div class="bli-read-more tt-btn tt-btn-link">
-												<a href="{% url 'details' %}" data-hover="Read More">Read More</a>
+												<a href="details/{{ post.slug }}" data-hover="Read More">Read More</a>
 											</div>
 										</div>
 										<!-- End blog list item info -->

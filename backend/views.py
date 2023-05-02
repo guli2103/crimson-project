@@ -40,8 +40,12 @@ def category(request):
     return render(request, 'detail-category.html')
 
 
-def details(request): 
-    return render(request, 'details.html')
+def details(request, slug ):
+    top = Post.objects.get(slug=slug)
+    context = {
+        'top' :top
+    } 
+    return render(request, 'details.html', context)
 
 
 def shop(request):

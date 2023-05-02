@@ -4,7 +4,8 @@ class ManyCategory(models.Model):
     category = models.CharField(max_length=255)
 
     def __str__(self):
-        return  self.namecategory
+        return  self.category
+    
     
 class ManyTags(models.Model):
     tags = models.CharField(max_length=255)
