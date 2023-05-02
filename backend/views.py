@@ -10,6 +10,7 @@ from .models import Post
 
 def index(request):
     posts = Post.objects.all()
+    
     context = {
         'posts' : posts
     }
