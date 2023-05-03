@@ -47,6 +47,17 @@ class Post(models.Model):
     def __str__(self):
         return self.name
     
+class Turi(models.Model):
+    languages = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return  self.languages
 
+class Menu(models.Model):
+    name = models.CharField(max_length=255)
+    
+
+    def __str__(self):
+        return  self.name
 
     

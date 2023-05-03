@@ -233,7 +233,7 @@ body {
 .tt-search-ghost,
 .tt-pagination,
 .tt-scrolling-text,
-#blog-list.bli-compact .bli-info::before,
+#blog-list.bli-compact .bli-infocha,
 .blog-interactive-item::before {
 	font-family: 'Noto Serif JP', serif;
 }
@@ -8792,7 +8792,7 @@ body.tt-sliding-sidebar-open .tt-sliding-sidebar-close {
 	body:not(.tt-sidebar-on) #blog-list.bli-compact {
 		counter-reset: bli-compact-counter;
 	}
-	body:not(.tt-sidebar-on) #blog-list.bli-compact .bli-info::before {
+	body:not(.tt-sidebar-on) #blog-list.bli-compact .bli-infocha {
 		position: absolute;
 		/* counter-increment: bli-compact-counter; */
 		/* content: "" counter(bli-compact-counter, decimal-leading-zero); */

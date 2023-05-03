@@ -389,7 +389,7 @@
 
 													<div class="single-product-adc-button">
 														<button type="submit" class="sp-adc-btn">
-															<a href="{{ top.life }}" class="sp-adc-btn-text"> life </a>
+															<a href="{{ top.life }}" > life </a>
 														</button>
 													</div>
 													<!-- End single download button -->
@@ -412,7 +412,11 @@
 													Category: 
 													<a href="shop-list.html">
 														{% for c in top.category.all %}
-															{{ c }}
+															{% if not forloop.last %}
+																{{ c }},
+															{% else %}	
+																{{ c }}
+															{% endif %}
 														{% endfor %}
 													</a>
 													<!-- <a href="">Varia</a> -->
@@ -421,7 +425,11 @@
 													Tags: 
 													<a href="">
 														{% for t in top.tags.all %}
-															{{ t }},
+															{% if not forloop.last %}
+																#{{ t }},
+															{% else %}	
+																#{{ t }}
+															{% endif %}		
 														{% endfor %}
 													</a> 
 													
@@ -487,7 +495,11 @@
 										  
 										  <tr>
 											<td>High Resolution:</td>
-											<td>Yes</td>
+											{% if top.resolution == True %}
+												<td>Yes</td>
+											{% else %}
+												<td>No</td>	
+											{% endif %}
 										  
 										  </tr>
 										  <tr>
@@ -505,21 +517,33 @@
 
 											<td>
 												{% for k in top.browsers.all %}
-													{{ k }},
+													{% if not forloop.last %}
+														{{ k }},
+													{% else %}	
+														{{ k }}
+													{% endif %}
 												{% endfor %}
 											</td>	
 										  </tr>
 										  <tr>
 											<td>Layout:</td>
-											<td>{{ top.layout }}</td>
+											{% if top.layout == True  %}
+												<td>Responsive</td>
+											{% else %}
+												<td> No responsive</td>	
+											{% endif %}	
 							
-										  </tr>
+										  </tr>8
 
 										  <tr>
 											<td>Languages::</td>
 											<td>
 												{% for l in top.languages.all %}
-													{{ l }}, 
+													{% if not forloop.last %}
+														{{ l }},
+													{% else %}	
+														{{ l }}
+													{% endif %} 
 												{% endfor %}
 											</td>
 							
@@ -527,6 +551,7 @@
 										  
 										</tbody>
 									  </table>
+									  
 									
 
 								</div>
@@ -537,9 +562,11 @@
 						</div>
 						<!-- End tt-section -->
 
+						
 
 					</div>
 					<!-- End page content -->
+					
 					
 					<!-- ======================
 					///// Begin tt-footer /////

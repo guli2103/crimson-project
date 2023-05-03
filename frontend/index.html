@@ -146,7 +146,7 @@
 												-->
 												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
 													<div class="tt-form-btn-inside">
-														<input class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
+														<input name="q" class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
 														<button type="submit"><i class="fas fa-search"></i></button>
 													</div>
 												</form>
@@ -364,15 +364,22 @@
 										<!-- Begin blog list item image -->
 										<a href="details/{{ post.slug }}" class="bli-image-wrap" data-cursor="Read<br>More">
 											<figure class="bli-image">
-												<img src="{{ post.img }}" data-src="{{ post.img }}" class="tt-lazy anim-zoomin" alt="Image">
+												<img src="{{ post.img.url }}" data-src="{{ post.img }}" class="tt-lazy anim-zoomin" alt="Image">
 											</figure>
 										</a>
 										<!-- End blog list item image -->
 										
 										<!-- Begin blog list item info -->
-										<div class="bli-info"><style>.bli-info:before { content: "CSS";}</style>
+										<div class="bli-info">
+											{% if post.id < 10 %}
+												<div class="bli-infocha" > 0 {{ post.id }}</div>
+											{% else %}
+												<div class="bli-infocha" > {{ post.id }}</div>	
+											{% endif %}
 											<div class="bli-categories">
-												<a href="blog-archive.html"> {{ post.category }} </a>
+												{% for c in post.category.all %}
+													<a href="blog-archive.html"> {{ c }} </a>
+												{% endfor %}
 												<!-- <a href="blog-archive.html">Uncategorized</a> -->
 											</div>
 											<h2 class="bli-title"><a href="details/{{ post.slug }}"> {{ post.name }} </a></h2>
@@ -402,48 +409,42 @@
 									<div class="tt-sliding-sidebar">
 										<div class="tt-sliding-sidebar-inner">
 
-											<!-- Begin sidebar widget -->
-											<div class="sidebar-widget sidebar-search">
-												<h3 class="sidebar-heading">Search</h3>
-												
-												<!-- Begin form (Note: for design purposes only!)
-												================ 
-												* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-												* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
-												-->
-												<form>
-													<div class="tt-form-btn-inside">
-														<input class="tt-form-control" type="text" id="search" placeholder="Type something & hit enter" required>
-														<button type="submit"><i class="fas fa-search"></i></button>
-													</div>
-												</form>
-												<!-- End form -->
-
-											</div> 
-											<!-- End sidebar widget -->
+											
 
 											<!-- Begin sidebar widget -->
+										{% for post1 in posts1 %}
 											<div class="sidebar-widget sidebar-categories">
-												<h3 class="sidebar-heading">CSS</h3>
-												<ul class="list-unstyled">
-													<li><a href="blog-archive.html">Navbar <span title="Entries in this category">26</span></a></li>
-													<li><a href="blog-archive.html">Sidebar <span title="Entries in this category">12</span></a></li>
-													<li><a href="blog-archive.html">Login <span title="Entries in this category">19</span></a></li>
-													<li><a href="blog-archive.html">Codes <span title="Entries in this category">31</span></a></li>
-													<li><a href="blog-archive.html">Animations <span title="Entries in this category">67</span></a></li>
-													<li><a href="blog-archive.html">Responsive <span title="Entries in this category">31</span></a></li>
-												</ul>
-												<br>
-												<h3 class="sidebar-heading">JavaScript</h3>
-												<ul class="list-unstyled">
-													<li><a href="blog-archive.html">Web Design <span title="Entries in this category">26</span></a></li>
-													<li><a href="blog-archive.html">Resources <span title="Entries in this category">12</span></a></li>
-													<li><a href="blog-archive.html">Tutorials <span title="Entries in this category">19</span></a></li>
-													<li><a href="blog-archive.html">Freebies <span title="Entries in this category">31</span></a></li>
-													<li><a href="blog-archive.html">Inspiration <span title="Entries in this category">67</span></a></li>
-													<li><a href="blog-archive.html">Freebies <span title="Entries in this category">31</span></a></li>
-												</ul>
+												
+													{% if post1.name == 'CSS' %}
+														<h3 class="sidebar-heading">{{ post1.name }}</h3>
+
+														{% for post2 in posts2 %}
+															{% if post2.languages == 'css' %}
+																<ul class="list-unstyled">
+																	<li><a href="blog-archive.html">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
+																</ul>
+															{% endif %}	
+														{% endfor %}
+														{% elif post1.name == 'JS' %}
+															<br>
+															<h3 class="sidebar-heading">{{ post1.name }}</h3>
+
+															{% for post2 in posts2 %}
+																{% if post2.languages == 'JS' %}
+																	<ul class="list-unstyled">
+																		<li><a href="blog-archive.html">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
+																	</ul>
+																{% endif %}	
+															{% endfor %}
+														{% endif %}	
+													{% endif %}	
+										{% endfor %}
+
+												
+												
+												
 											</div>
+										{% endfor %}	
 											<!-- End sidebar widget -->
 
 										</div> <!-- /.tt-sliding-sidebar-inner -->
@@ -468,18 +469,36 @@
 								* Use class "tt-pagin-center" to align center.
 								-->
 								<div class="tt-pagination tt-pagin-center anim-fadeinup">
+
+
 									<div class="tt-pagin-prev">
-										<a href="" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+										{% if posts.has_previous %}
+											<a href="/?page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+										{% endif %}	
 									</div>
+
+
+
 									<div class="tt-pagin-numbers">
-										<a href="#0" class="tt-pagin-item magnetic-item active">1</a>
-										<a href="" class="tt-pagin-item magnetic-item">2</a>
-										<a href="" class="tt-pagin-item magnetic-item">3</a>
-										<a href="" class="tt-pagin-item magnetic-item">4</a>
-										<a href="" class="tt-pagin-item magnetic-item">5</a>
+										{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
+											{% if posts.number == i %}
+												<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+											{% else %}
+												{% if i  == posts.paginator.ELLIPSIS %}	
+													<a href="" class="tt-pagin-item magnetic-item">{{ i }}</a>
+												{% else %}	
+													<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+												{% endif %}
+											{% endif %}	
+										{% endfor %}
 									</div>
+
+
+
 									<div class="tt-pagin-next">
-										<a href="" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+										{% if posts.has_next %}
+											<a href="/?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+										{% endif %}
 									</div>
 								</div>
 								<!-- End tt-pagination -->
@@ -503,7 +522,7 @@
 								* Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
 								-->
 								<div class="tt-page-nav tt-pn-scroll">
-									<a href="about.html" class="tt-pn-link anim-fadeinup">
+									<a href="{% url 'about' %}" class="tt-pn-link anim-fadeinup">
 										<div class="tt-pn-title">About</div>
 										<div class="tt-pn-hover-title">About us</div>
 									</a> <!-- /.tt-pn-link -->
