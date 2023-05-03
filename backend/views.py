@@ -63,8 +63,10 @@ def category(request):
 
 def details(request, slug ):
     top = Post.objects.get(slug=slug)
+    posts = Post.objects.all().order_by('?')[:3]
     context = {
-        'top' :top
+        'top' :top,
+        'posts' :posts 
     } 
     return render(request, 'details.html', context)
 

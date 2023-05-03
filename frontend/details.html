@@ -533,7 +533,7 @@
 												<td> No responsive</td>	
 											{% endif %}	
 							
-										  </tr>8
+										  </tr>
 
 										  <tr>
 											<td>Languages::</td>
@@ -552,21 +552,78 @@
 										</tbody>
 									  </table>
 									  
+
+									  
+									  
 									
 
 								</div>
 								
 								<!-- End tt-Tabs -->
 
+								
+
+
 							</div> <!-- /.tt-section-inner -->
 						</div>
 						<!-- End tt-section -->
 
-						
+					
 
 					</div>
 					<!-- End page content -->
 					
+
+					<div class="tt-grid ttgr-layout-3 ttgr-gap-3">
+						<div class="tt-grid-items-wrap">    
+						  {% for post in posts %}        
+						  <div class="tt-grid-item">
+							<div class="ttgr-item-inner">
+			
+							  <!-- Begin tt-Product 
+							  ====================== -->
+							  <div class="tt-product">
+								<div class="tt-product-image-holder">
+								  <a href="{% url 'details' post.slug %}" class="tt-product-image-wrap" data-cursor="View<br>Product">
+									<figure class="tt-product-image">
+									  <img class="anim-zoomin tt-lazy" src="{{ post.img.url }}" data-src="{{ post.img.url }}" alt="image" />
+									</figure>
+			
+									<figure class="tt-product-hover-image">
+									  <img class="tt-lazy" src="{{ post.img.url }}" data-src="{{ post.img.url }}" alt="image" />
+									</figure>
+								  </a> 
+			
+								  
+								</div> 
+			
+								<div class="tt-product-info">
+								  <!-- <div class="tt-product-categories">
+									<a href="" class="tt-product-category">Mockups</a>
+								  </div> -->
+			
+								  <h3 class="tt-product-title"><a href="{% url 'details' post.slug %}" title="{{ post.name|title }}">{{ post.name|title }}</a></h3>
+			
+								  <div class="tt-pi-price-btn-wrap">
+									<div class="tt-product">
+									  <!-- <bdi>$25.00</bdi> -->
+									  {% for c in post.category.all %}
+											<ins class="pp-current-price">
+												{{ c }}
+									  		</ins>
+									  {% endfor %}
+									</div> <!-- /.tt-product-price -->
+			
+								  </div> <!-- /.tt-pi-price-btn-wrap -->
+								</div> <!-- /.tt-product-info -->
+							  </div>
+							  <!-- End tt-Product -->
+			
+							</div>
+						  </div>
+						  {% endfor %}
+						</div>
+					  </div>
 					
 					<!-- ======================
 					///// Begin tt-footer /////
