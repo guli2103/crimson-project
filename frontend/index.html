@@ -412,31 +412,18 @@
 											
 
 											<!-- Begin sidebar widget -->
-										{% for post1 in posts1 %}
+										{% for post2 in posts2 %}
 											<div class="sidebar-widget sidebar-categories">
 												
-													{% if post1.name == 'CSS' %}
 														<h3 class="sidebar-heading">{{ post1.name }}</h3>
 
-														{% for post2 in posts2 %}
-															{% if post2.languages == 'css' %}
+														{% for post1 in posts1 %}
+															{% if post2.languages|lower  == post1.languages|lower  %}
 																<ul class="list-unstyled">
 																	<li><a href="blog-archive.html">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
 																</ul>
 															{% endif %}	
 														{% endfor %}
-														{% elif post1.name == 'JS' %}
-															<br>
-															<h3 class="sidebar-heading">{{ post1.name }}</h3>
-
-															{% for post2 in posts2 %}
-																{% if post2.languages == 'JS' %}
-																	<ul class="list-unstyled">
-																		<li><a href="blog-archive.html">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
-																	</ul>
-																{% endif %}	
-															{% endfor %}
-														{% endif %}																
 											</div>
 										{% endfor %}	
 											<!-- End sidebar widget -->

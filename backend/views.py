@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    posts = Post.objects.all().order_by('-date1') 
+    posts = Post.objects.all().order_by('-id') 
     posts1 = Menu.objects.all()
     posts2 = Turi.objects.all()
     if 'q' in request.GET:
