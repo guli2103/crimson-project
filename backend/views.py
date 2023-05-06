@@ -58,7 +58,7 @@ def about_p(request):
     return render(request, 'about-p.html')
 
 def category(request):
-    return render(request, 'detail-category.html')
+    return render(request, 'category.html')
 
 
 def details(request, slug ):
@@ -71,8 +71,13 @@ def details(request, slug ):
     return render(request, 'details.html', context)
 
 
-def shop(request):
-    return render(request, 'shop.html')
+def shop(request , slug ):
+    post3 = Post.objects.get(slug=slug)
+    context = {
+        'post3' : post3
+    } 
+
+    return render(request, 'shop.html', context)
 
 
 

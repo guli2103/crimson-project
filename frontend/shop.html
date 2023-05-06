@@ -304,11 +304,12 @@
 							=============================== 
 							Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
 							-->
+						{% for c in post3.category.all %}
 							<div class="ph-caption">
-								<h1 class="ph-caption-title ph-appear">Shop</h1>
-								<div class="ph-caption-title-ghost ph-appear">Shop</div>
-								<div class="ph-caption-subtitle ph-appear">Premium Projects</div>
+								<h1 class="ph-caption-title ph-appear">{{ c }} Projects</h1>
+								<div class="ph-caption-subtitle ph-appear">  </div>
 							</div> 
+						{% endfor %}	
 							<!-- End page header caption -->
 
 						</div> <!-- /.page-header-inner -->
@@ -370,29 +371,9 @@
 									* Use class "ttgr-layout-2", "ttgr-layout-3", "ttgr-layout-4" to set grid layout (columns).
 									* Use class "ttgr-gap-1", "ttgr-gap-2", "ttgr-gap-3", "ttgr-gap-4", "ttgr-gap-5" or "ttgr-gap-6" to add space between items.
 									-->
+									
 									<div class="tt-grid ttgr-layout-3 ttgr-gap-3">
 
-										<!-- Begin tt-Ggrid top content 
-										================================ -->
-										<div class="tt-grid-top">
-
-											<!-- Begin shop grid header 
-											============================ -->
-											<div class="shop-grid-header">
-												<div class="tt-row tt-no-gutters">
-													<div class="tt-col-md-6">
-														<div class="shop-grid-count">36 products</div>
-													</div> <!-- /.tt-col -->
-
-													<div class="tt-col-md-6">
-
-													</div> <!-- /.tt-col -->
-												</div> <!-- /.tt-row -->
-											</div>
-											<!-- End tt-Grid top content -->
-
-										</div>
-										<!-- End shop grid header -->
 
 
 										<!-- Begin tt-Grid items wrap 
@@ -409,11 +390,11 @@
 														<div class="tt-product-image-holder">
 															<a href="shop-single.html" class="tt-product-image-wrap" data-cursor="View<br>Product">
 																<figure class="tt-product-image">
-																	<img class="anim-zoomin tt-lazy" src="{% static 'img/shop/shop-low-qlt-thumb.jpg' %}" data-src="assets/img/shop/grid/product-1/product-1-1.jpg" alt="image" />
+																	<img class="anim-zoomin tt-lazy" src="{{ post3.img.url }}" data-src="assets/img/shop/grid/product-1/product-1-1.jpg" alt="image" />
 																</figure> <!-- /.tt-product-image -->
 																
 																<figure class="tt-product-hover-image">
-																	<img class="tt-lazy" src="{% static 'img/shop/shop-low-qlt-thumb.jpg' %}" data-src="assets/img/shop/grid/product-1/product-1-2.jpg" alt="image" />
+																	<img class="tt-lazy" src="{{ post3.img.url  }}" data-src="assets/img/shop/grid/product-1/product-1-2.jpg" alt="image" />
 																</figure> <!-- /.tt-product-hover-image -->
 
 																<!-- <div class="tt-product-padges">
@@ -446,7 +427,7 @@
 																<a href="" class="tt-product-category">Mockups</a>
 															</div> -->
 
-															<h3 class="tt-product-title"><a href="shop-single.html" title="Dash - Branding Mockup Templates">Dash - Branding Mockup Templates</a></h3>
+															<h3 class="tt-product-title"><a href="shop-single.html" title="Dash - Branding Mockup Templates"> {{ post3.name }} </a></h3>
 
 															<!-- <div class="tt-product-rating">
 																<div class="tt-product-rating-stars">
@@ -459,14 +440,15 @@
 															</div> -->
 
 															<div class="tt-pi-price-btn-wrap">
-																<div class="tt-product-price">
-																	<bdi>$25.00</bdi>
+																{% for c in post3.category.all %}
+																	<div class="tt-product-price">
+																		<bdi>{{ c }}</bdi>
 																	<!-- <ins class="pp-current-price"><bdi>$21.00</bdi></ins>
 																	<del class="pp-old-price"><bdi>$25.00</bdi></del> -->
-																</div> <!-- /.tt-product-price -->
-
+																	</div> <!-- /.tt-product-price -->
+																{% endfor %}	
 																<div class="tt-product-buttons">
-																	<a href="#" class="tt-product-btn tt-product-adc-btn"><span>Add to Cart</span></a>
+																	<a href="{{ post3.down.url }}"  download="{{ post3.down.url }}  class="tt-product-btn tt-product-adc-btn"><span> Download </span></a>
 																	<!-- <a href="shop-single.html" class="tt-product-btn tt-product-sel-opt-btn"><span>Select Options</span></a> -->
 																</div> <!-- /.tt-product-buttons -->
 															</div> <!-- /.tt-pi-price-btn-wrap -->
@@ -481,6 +463,7 @@
 										<!-- End tt-Grid items wrap  -->
 
 									</div>
+									
 									<!-- End tt-Grid -->
 
 								</div>
@@ -491,18 +474,38 @@
 								========================= 
 								* Use class "tt-pagin-center" to align center.
 								-->
+								
 								<div class="tt-pagination tt-pagin-center anim-fadeinup">
+
+
 									<div class="tt-pagin-prev">
-										<a href="" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+										{% if posts.has_previous %}
+											<a href="/?page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+										{% endif %}	
 									</div>
+
+
+
 									<div class="tt-pagin-numbers">
-										<a href="#0" class="tt-pagin-item magnetic-item active">1</a>
-										<a href="" class="tt-pagin-item magnetic-item">2</a>
-										<a href="" class="tt-pagin-item magnetic-item">3</a>
-										<a href="" class="tt-pagin-item magnetic-item">4</a>
+										{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
+											{% if posts.number == i %}
+												<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+											{% else %}
+												{% if i  == posts.paginator.ELLIPSIS %}	
+													<a href="" class="tt-pagin-item magnetic-item">{{ i }}</a>
+												{% else %}	
+													<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+												{% endif %}
+											{% endif %}	
+										{% endfor %}
 									</div>
+
+
+
 									<div class="tt-pagin-next">
-										<a href="" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+										{% if posts.has_next %}
+											<a href="/?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+										{% endif %}
 									</div>
 								</div>
 								<!-- End tt-pagination -->
@@ -516,181 +519,29 @@
 									<div class="tt-sliding-sidebar">
 										<div class="tt-sliding-sidebar-inner">
 
+											
+
 											<!-- Begin sidebar widget -->
+										{% for post1 in posts1 %}
 											<div class="sidebar-widget sidebar-categories">
-												<h3 class="sidebar-heading">Categories</h3>
-												<ul class="list-unstyled">
-													<li><a href="blog-archive.html">Branding <span title="Entries in this category">26</span></a></li>
-													<li><a href="blog-archive.html">Packaging <span title="Entries in this category">12</span></a></li>
-													<li><a href="blog-archive.html">Print <span title="Entries in this category">19</span></a></li>
-													<li><a href="blog-archive.html">Mobile <span title="Entries in this category">31</span></a></li>
-												</ul>
+												<h3 class="sidebar-heading">{{ post1.name }}</h3>
+
+														{% for post2 in posts2 %}	
+
+															{% if post2.languages|lower  == post1.languages|lower  %}
+																<ul class="list-unstyled">
+																	{% for post in posts %}
+																		<li><a href="{% url 'shop' post.slug %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
+																	{% endfor %}
+																</ul>
+															{% endif %}	
+														{% endfor %}
+
+
+
+														
 											</div>
-											<!-- End sidebar widget -->
-
-
-											<!-- Begin shop filter form (Note: the shop filter widgets is for design purposes only!) 
-											============================= 
-											* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-											-->
-											<form class="shop-filter-form tt-form-minimal">
-
-												<!-- Begin sidebar shop widget. Add class "hidden" to hide filter widget by default -->
-												<div class="sidebar-widget shop-filter-widget sidebar-price-range">
-													<h3 class="sidebar-heading">Price</h3>
-													<div class="shop-fw-caret hide-cursor"></div>
-													<div class="shop-filter-widget-content">
-														<div class="shop-fwc-inner tt-custom-scrollbar tt-overflow">
-															<div class="shop-fw-price-range">
-																<div class="shop-fw-price-box">
-																	<span class="shop-fw-price-box-currency">$</span>
-																	<input type="number" class="tt-form-control" name="min-price" min="1" max="150" value="1" placeholder="" title="Enter price as a whole number">
-																</div>
-																<span class="shop-fw-price-range-separator">-</span>
-																<div class="shop-fw-price-box">
-																	<span class="shop-fw-price-box-currency">$</span>
-																	<input type="number" class="tt-form-control" name="max-price" min="1" max="150" value="150" placeholder="" title="Enter price as a whole number">
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- End sidebar widget -->
-
-												<!-- Begin sidebar shop widget. Add class "hidden" to hide filter widget by default -->
-												<div class="sidebar-widget shop-filter-widget sidebar-check-list">
-													<h3 class="sidebar-heading">License</h3>
-													<div class="shop-fw-caret hide-cursor"></div>
-													<div class="shop-filter-widget-content">
-														<div class="shop-fwc-inner tt-custom-scrollbar tt-overflow">
-															<div class="tt-form-check">
-																<input type="checkbox" name="regular-license" id="10048763">
-																<label for="10048763">Regular license <span>(6)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="extended-license" id="67758399">
-																<label for="67758399">Extended license <span>(9)</span></label>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- End sidebar widget -->
-
-												<!-- Begin sidebar shop widget. Add class "hidden" to hide filter widget by default -->
-												<div class="sidebar-widget shop-filter-widget sidebar-check-list">
-													<h3 class="sidebar-heading">On Sale</h3>
-													<div class="shop-fw-caret hide-cursor"></div>
-													<div class="shop-filter-widget-content">
-														<div class="shop-fwc-inner tt-custom-scrollbar tt-overflow">
-															<div class="tt-form-check">
-																<input type="checkbox" name="on-sale-yes" id="30095224">
-																<label for="30095224">Yes <span>(4)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="on-sale-no" id="33984400">
-																<label for="33984400">No <span>(32)</span></label>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- End sidebar widget -->
-
-												<!-- Begin sidebar shop widget. Add class "hidden" to hide filter widget by default -->
-												<!-- <div class="sidebar-widget shop-filter-widget sidebar-radio-list">
-													<h3 class="sidebar-heading">Rating</h3>
-													<div class="shop-fw-caret hide-cursor"></div>
-													<div class="shop-filter-widget-content">
-														<div class="shop-fwc-inner tt-custom-scrollbar tt-overflow">
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="77223990" checked>
-																<label for="77223990">Show all <span>(36)</span></label>
-															</div>
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="62239901">
-																<label for="62239901">5 stars and higher <span>(21)</span></label>
-															</div>
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="66758556">
-																<label for="66758556">4 stars and higher <span>(11)</span></label>
-															</div>
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="00022348">
-																<label for="00022348">3 stars and higher <span>(2)</span></label>
-															</div>
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="10649046">
-																<label for="10649046">2 stars and higher <span>(1)</span></label>
-															</div>
-															<div class="tt-form-radio">
-																<input type="radio" name="rating" id="53396753">
-																<label for="53396753">1 star and higher <span>(1)</span></label>
-															</div>
-														</div>
-													</div>
-												</div> -->
-												<!-- End sidebar widget -->
-
-												<!-- Begin sidebar shop widget. Add class "hidden" to hide filter widget by default -->
-												<div class="sidebar-widget shop-filter-widget sidebar-check-list">
-													<h3 class="sidebar-heading">Tags</h3>
-													<div class="shop-fw-caret hide-cursor"></div>
-													<div class="shop-filter-widget-content">
-														<div class="shop-fwc-inner tt-custom-scrollbar tt-overflow">
-															<div class="tt-form-check">
-																<input type="checkbox" name="tag-1" id="44873990">
-																<label for="44873990">#mockup <span>(36)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="tag-2" id="11003092">
-																<label for="11003092">#artwork <span>(12)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="tag-3" id="67758493">
-																<label for="67758493">#design <span>(9)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="tag-4" id="02759776">
-																<label for="02759776">#creative <span>(16)</span></label>
-															</div>
-															<div class="tt-form-check">
-																<input type="checkbox" name="tag-5" id="40093345">
-																<label for="40093345">#branding <span>(4)</span></label>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- End sidebar widget -->
-
-												<div class="tt-btn tt-btn-primary tt-btn-block shop-filter-submit-btn">
-													<button type="submit" data-hover="Filter">Filter</button>
-												</div>
-
-											</form>
-											<!-- End shop filter form -->
-
-
-											<!-- Begin sidebar widget -->
-											<!-- <div class="sidebar-widget sidebar-tags">
-												<h3 class="sidebar-heading">Tags</h3>
-												<div class="sidebar-tags-list">
-													<ul>
-														<li><a href="">#portfolio</a></li>
-														<li><a href="">#multipurpose</a></li>
-														<li><a href="">#minimal</a></li>
-														<li><a href="">#agency</a></li>
-														<li><a href="">#creatives</a></li>
-														<li><a href="">#freelancers</a></li>
-														<li><a href="">#design</a></li>
-														<li><a href="">#bootstrap</a></li>
-														<li><a href="">#responsive</a></li>
-														<li><a href="">#simple</a></li>
-														<li><a href="">#creative</a></li>
-														<li><a href="">#blog</a></li>
-														<li><a href="">#wordpress</a></li>
-														<li><a href="">#black &amp; white</a></li>
-													</ul>
-												</div>
-											</div> -->
+										{% endfor %}	
 											<!-- End sidebar widget -->
 
 										</div> <!-- /.tt-sliding-sidebar-inner -->

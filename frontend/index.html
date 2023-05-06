@@ -412,18 +412,24 @@
 											
 
 											<!-- Begin sidebar widget -->
-										{% for post2 in posts2 %}
+										{% for post1 in posts1 %}
 											<div class="sidebar-widget sidebar-categories">
-												
-														<h3 class="sidebar-heading">{{ post1.name }}</h3>
+												<h3 class="sidebar-heading">{{ post1.name }}</h3>
 
-														{% for post1 in posts1 %}
+														{% for post2 in posts2 %}	
+
 															{% if post2.languages|lower  == post1.languages|lower  %}
 																<ul class="list-unstyled">
-																	<li><a href="blog-archive.html">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
+																	{% for post in posts %}
+																		<li><a href="{% url 'shop' post.slug %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
+																	{% endfor %}
 																</ul>
 															{% endif %}	
 														{% endfor %}
+
+
+
+														
 											</div>
 										{% endfor %}	
 											<!-- End sidebar widget -->

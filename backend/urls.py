@@ -14,9 +14,9 @@ urlpatterns = [
     path('about/', about , name='about'),
     path('404/', xato404, name='404'),
     path('about-p/', about_p , name='about_p'),
-    path('category/', category, name='category'),
+    path('categoryy/', category, name='category'),
     path('details/<slug:slug>', details, name='details'),
-    path('shop/', shop, name='shop'),  
+    path('category/<slug:slug>', shop, name='shop'),  
 ]
 
 
