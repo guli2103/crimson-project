@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    posts = Post.objects.all().order_by('-id') 
+    posts = Post.objects.all().order_by('-date1') 
     posts1 = Menu.objects.all()
     posts2 = Turi.objects.all()
     if 'q' in request.GET:
@@ -71,10 +71,34 @@ def details(request, slug ):
     return render(request, 'details.html', context)
 
 
-def shop(request , slug ):
-    post3 = Post.objects.get(slug=slug)
+def shop(request, slug ):
+    post3 = Post.objects.all()
+    posts1 = Menu.objects.get(slug=slug)
+    yangi = Menu.objects.all()
+    posts2 = Turi.objects.all()
+    if 'q' in request.GET:
+        q = request.GET['q']
+        post =  Q(Q(name__icontains=q)|Q(username__icontains=q)|Q(category__category__icontains=q))
+        post3 = Post.objects.filter(post)
+    else:
+        post3 = Post.objects.all()
+    paginator = Paginator(post3, 3 ) 
+    page_number = request.GET.get('page', 1)
+    project_pagination = paginator.get_page(page_number)
+    totalpages = project_pagination.paginator.num_pages
+    page_range = paginator.get_elided_page_range(number=page_number) 
+    
+    post_filter = Post.objects.filter(category=post3)
+
     context = {
-        'post3' : post3
+        'post3' : project_pagination,
+        'totalpages' : totalpages,
+        'list_pagination' : [n+1 for n in range(totalpages)],
+        'page_range' : page_range,
+        'posts1' : posts1 ,
+        'posts2' : posts2,
+        'yangi'  : yangi ,
+        ' post_filter ' :  post_filter 
     } 
 
     return render(request, 'shop.html', context)

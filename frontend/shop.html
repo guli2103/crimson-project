@@ -146,7 +146,7 @@
 												-->
 												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
 													<div class="tt-form-btn-inside">
-														<input class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
+														<input class="tt-form-control" name="q" type="text" id="search" placeholder="Type your keywords..." required>
 														<button type="submit"><i class="fas fa-search"></i></button>
 													</div>
 												</form>
@@ -304,9 +304,10 @@
 							=============================== 
 							Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
 							-->
-						{% for c in post3.category.all %}
+							
+						{% for p3 in post_filter  %}
 							<div class="ph-caption">
-								<h1 class="ph-caption-title ph-appear">{{ c }} Projects</h1>
+								<h1 class="ph-caption-title ph-appear">{{ p3.category }} Projects</h1>
 								<div class="ph-caption-subtitle ph-appear">  </div>
 							</div> 
 						{% endfor %}	
@@ -355,6 +356,7 @@
 						============================ 
 						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
 						-->
+						
 						<div class="tt-section no-padding-top">
 							<div class="tt-section-inner tt-wrap max-width-1400">
 
@@ -363,7 +365,9 @@
 								* Use class "ttp-fixed-height" or "ttp-fixed-height-portrait" to enable product fixed heigt (images will be cropped!).
 								* Use class "ttp-info-inside" to change product info position.
 								* Hint: For better user experience, use images with the same dimensions.
-								--> 
+								-->
+								
+								 
 								<div id="shop-grid" class="ttp-fixed-height">
 
 									<!-- Begin tt-Grid
@@ -375,26 +379,29 @@
 									<div class="tt-grid ttgr-layout-3 ttgr-gap-3">
 
 
-
 										<!-- Begin tt-Grid items wrap 
 										============================== -->
 										<div class="tt-grid-items-wrap">
 											<!-- Begin tt-Grid item
 											======================== -->
+											{% for p3 in  post_filter  %}
 											<div class="tt-grid-item">
+											
 												<div class="ttgr-item-inner">
-
+												
 													<!-- Begin tt-Product 
 													====================== -->
+													
 													<div class="tt-product">
+														
 														<div class="tt-product-image-holder">
 															<a href="shop-single.html" class="tt-product-image-wrap" data-cursor="View<br>Product">
 																<figure class="tt-product-image">
-																	<img class="anim-zoomin tt-lazy" src="{{ post3.img.url }}" data-src="assets/img/shop/grid/product-1/product-1-1.jpg" alt="image" />
+																	<img class="anim-zoomin tt-lazy" src="{{ p3.img.url }}" data-src="assets/img/shop/grid/product-1/product-1-1.jpg" alt="image" />
 																</figure> <!-- /.tt-product-image -->
 																
 																<figure class="tt-product-hover-image">
-																	<img class="tt-lazy" src="{{ post3.img.url  }}" data-src="assets/img/shop/grid/product-1/product-1-2.jpg" alt="image" />
+																	<img class="tt-lazy" src="{{ p3.img.url  }}" data-src="assets/img/shop/grid/product-1/product-1-2.jpg" alt="image" />
 																</figure> <!-- /.tt-product-hover-image -->
 
 																<!-- <div class="tt-product-padges">
@@ -407,10 +414,7 @@
 															</a> <!-- /.tt-product-image-wrap -->
 
 															<div class="tt-product-additional-buttons">
-																<div class="tt-pr-addit-btn-wrap">
-																	<a href="#" class="tt-pab-btn tt-add-to-wishlist-btn" title="Add to wishlist"><span><i class="far fa-heart"></i></span></a>
-																	<a href="shop-wishlist.html" class="tt-pab-btn tt-add-to-wishlist-btn-active" title="Browse wishlist"><span><i class="fas fa-heart"></i></span></a>
-																</div>
+																
 
 																<!-- <div class="tt-pr-addit-btn-wrap">
 																	<a href="#" class="tt-pab-btn tt-add-to-compare-btn" title="Compare"><span><i class="fas fa-retweet"></i></span></a>
@@ -427,7 +431,7 @@
 																<a href="" class="tt-product-category">Mockups</a>
 															</div> -->
 
-															<h3 class="tt-product-title"><a href="shop-single.html" title="Dash - Branding Mockup Templates"> {{ post3.name }} </a></h3>
+															<h3 class="tt-product-title"><a href="shop-single.html" title="Dash - Branding Mockup Templates"> {{ p3.name }} </a></h3>
 
 															<!-- <div class="tt-product-rating">
 																<div class="tt-product-rating-stars">
@@ -439,77 +443,43 @@
 																</div>
 															</div> -->
 
+														
 															<div class="tt-pi-price-btn-wrap">
-																{% for c in post3.category.all %}
+																
 																	<div class="tt-product-price">
-																		<bdi>{{ c }}</bdi>
+																		<bdi>{{ p3.category  }}</bdi>
 																	<!-- <ins class="pp-current-price"><bdi>$21.00</bdi></ins>
 																	<del class="pp-old-price"><bdi>$25.00</bdi></del> -->
 																	</div> <!-- /.tt-product-price -->
-																{% endfor %}	
+																
 																<div class="tt-product-buttons">
-																	<a href="{{ post3.down.url }}"  download="{{ post3.down.url }}  class="tt-product-btn tt-product-adc-btn"><span> Download </span></a>
+																	<a href="{{ p3.down.url }}"  download="{{ p3.down.url }}  class="tt-product-btn tt-product-adc-btn"><span> Download </span></a>
 																	<!-- <a href="shop-single.html" class="tt-product-btn tt-product-sel-opt-btn"><span>Select Options</span></a> -->
 																</div> <!-- /.tt-product-buttons -->
 															</div> <!-- /.tt-pi-price-btn-wrap -->
+														
 														</div> <!-- /.tt-product-info -->
+														
 													</div>
+													
 													<!-- End tt-Product -->
-
+													
 												</div> <!-- /.ttgr-item-inner -->
+												
 											</div>
+											{% endfor %}
 											<!-- End tt-Grid item -->
 										</div>
 										<!-- End tt-Grid items wrap  -->
-
+										
 									</div>
 									
 									<!-- End tt-Grid -->
 
 								</div>
 								<!-- End shop grid -->
-
-
-								<!-- Begin tt-pagination (uncomment below code if you want to use pagination)
-								========================= 
-								* Use class "tt-pagin-center" to align center.
-								-->
 								
-								<div class="tt-pagination tt-pagin-center anim-fadeinup">
-
-
-									<div class="tt-pagin-prev">
-										{% if posts.has_previous %}
-											<a href="/?page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
-										{% endif %}	
-									</div>
-
-
-
-									<div class="tt-pagin-numbers">
-										{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
-											{% if posts.number == i %}
-												<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
-											{% else %}
-												{% if i  == posts.paginator.ELLIPSIS %}	
-													<a href="" class="tt-pagin-item magnetic-item">{{ i }}</a>
-												{% else %}	
-													<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
-												{% endif %}
-											{% endif %}	
-										{% endfor %}
-									</div>
-
-
-
-									<div class="tt-pagin-next">
-										{% if posts.has_next %}
-											<a href="/?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
-										{% endif %}
-									</div>
-								</div>
-								<!-- End tt-pagination -->
-
+								
 
 								<!-- Begin sliding sidebar 
 								=========================== 
@@ -522,7 +492,7 @@
 											
 
 											<!-- Begin sidebar widget -->
-										{% for post1 in posts1 %}
+										{% for post1 in yangi %}
 											<div class="sidebar-widget sidebar-categories">
 												<h3 class="sidebar-heading">{{ post1.name }}</h3>
 
@@ -530,9 +500,7 @@
 
 															{% if post2.languages|lower  == post1.languages|lower  %}
 																<ul class="list-unstyled">
-																	{% for post in posts %}
-																		<li><a href="{% url 'shop' post.slug %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
-																	{% endfor %}
+																		<li><a href="">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
 																</ul>
 															{% endif %}	
 														{% endfor %}
@@ -559,6 +527,50 @@
 
 								</div> 
 								<!-- End sliding sidebar -->
+
+
+
+
+								<!-- Begin tt-pagination 
+								========================= 
+								* Use class "tt-pagin-center" to align center.
+								-->
+								
+								<div class="tt-pagination tt-pagin-center anim-fadeinup">
+
+
+									<div class="tt-pagin-prev">
+										{% if post3.has_previous %}
+											<a href="/?page={{post3.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+										{% endif %}	
+									</div>
+
+
+
+									<div class="tt-pagin-numbers">
+										{% for i in page_range|default_if_none:post3.paginator.get_elided_page_range %} 
+											{% if post3.number == i %}
+												<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+											{% else %}
+												{% if i  == post3.paginator.ELLIPSIS %}	
+													<a href="" class="tt-pagin-item magnetic-item">{{ i }}</a>
+												{% else %}	
+													<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+												{% endif %}
+											{% endif %}	
+										{% endfor %}
+									</div>
+
+
+
+									<div class="tt-pagin-next">
+										{% if post3.has_next %}
+											<a href="/?page={{ post3.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+										{% endif %}
+									</div>
+									
+								</div>
+								<!-- End tt-pagination -->
 
 							</div> <!-- /.tt-section-inner -->
 						</div>
@@ -611,8 +623,8 @@
 										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
 										<div class="social-buttons">
 											<ul>
-												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
-												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener"><i class='bx bxl-instagram-alt' style='color:#fafdfe' ></i></a></li>
+												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener"><i class='bx bxl-telegram' style='color:#fafdfe'></i></a></li>
 											</ul>
 										</div> <!-- /.social-buttons -->
 									</div> <!-- /.footer-social -->

@@ -420,9 +420,7 @@
 
 															{% if post2.languages|lower  == post1.languages|lower  %}
 																<ul class="list-unstyled">
-																	{% for post in posts %}
-																		<li><a href="{% url 'shop' post.slug %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
-																	{% endfor %}
+																		<li><a href="{% url 'shop'  post1.slug  %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
 																</ul>
 															{% endif %}	
 														{% endfor %}

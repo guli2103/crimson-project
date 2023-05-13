@@ -411,13 +411,7 @@
 												<div class="single-product-categories">
 													Category: 
 													<a href="shop-list.html">
-														{% for c in top.category.all %}
-															{% if not forloop.last %}
-																{{ c }},
-															{% else %}	
-																{{ c }}
-															{% endif %}
-														{% endfor %}
+																{{ top.category }}
 													</a>
 													<!-- <a href="">Varia</a> -->
 												</div>
