@@ -354,50 +354,58 @@
 								* Use class "bli-image-cropped" to grop blog list item images (set fixed height).
 								* Use class "bli-compact" to enable compact blog list style. Note: If "tt-sidebar" is used, then add more width to "tt-section-inner", for example "max-width-1600".
 								-->
-								{% for post in posts %}
-								<div id="blog-list" class="bli-image-cropped bli-compact">
-
-									<!-- Begin blog list item 
-									========================== -->
-									<article class="blog-list-item">
 								
-										<!-- Begin blog list item image -->
-										<a href="details/{{ post.slug }}" class="bli-image-wrap" data-cursor="Read<br>More">
-											<figure class="bli-image">
-												<img src="{{ post.img.url }}" data-src="{{ post.img }}" class="tt-lazy anim-zoomin" alt="Image">
-											</figure>
-										</a>
-										<!-- End blog list item image -->
-										
-										<!-- Begin blog list item info -->
-										<div class="bli-info">
-											{% if post.id < 10 %}
-												<div class="bli-infocha" > 0 {{ post.id }}</div>
-											{% else %}
-												<div class="bli-infocha" > {{ post.id }}</div>	
-											{% endif %}
-											<div class="bli-categories">
-												{% for c in post.category.all %}
-													<a href="blog-archive.html"> {{ c }} </a>
-												{% endfor %}
-												<!-- <a href="blog-archive.html">Uncategorized</a> -->
-											</div>
-											<h2 class="bli-title"><a href="details/{{ post.slug }}"> {{ post.name }} </a></h2>
-											<div class="bli-meta">
-												<span class="published"> {{ post.date1 }} </span>
-												<span class="posted-by">- by <a href="about-p.html" title="View all posts by John Doe"> {{ post.username }} </a></span>
-											</div>
-											<div class="bli-read-more tt-btn tt-btn-link">
-												<a href="details/{{ post.slug }}" data-hover="Read More">Read More</a>
-											</div>
+								<div class="tt-grid ttgr-layout-3 ttgr-gap-3">
+									<div class="tt-grid-items-wrap">    
+									  {% for post in posts %}        
+									  <div class="tt-grid-item">
+										<div class="ttgr-item-inner">
+						
+										  <!-- Begin tt-Product 
+										  ====================== -->
+										  <div class="tt-product">
+											<div class="tt-product-image-holder">
+											  <a href="{% url 'details' post.slug %}" class="tt-product-image-wrap" data-cursor="View<br>Product">
+												<figure class="tt-product-image">
+												  <img class="anim-zoomin tt-lazy" src="{{ post.img.url }}" data-src="{{ post.img.url }}" alt="image" />
+												</figure>
+						
+												<figure class="tt-product-hover-image">
+												  <img class="tt-lazy" src="{{ post.img.url }}" data-src="{{ post.img.url }}" alt="image" />
+												</figure>
+											  </a> 
+						
+											  
+											</div> 
+						
+											<div class="tt-product-info">
+											  <!-- <div class="tt-product-categories">
+												<a href="" class="tt-product-category">Mockups</a>
+											  </div> -->
+						
+											  <h3 class="tt-product-title"><a href="{% url 'details' post.slug %}" title="{{ post.name|title }}">{{ post.name|title }}</a></h3>
+						
+											  <div class="tt-pi-price-btn-wrap">
+												<div class="tt-product">
+												  <!-- <bdi>$25.00</bdi> -->
+												  {% for c in post.category.all %}
+														<ins class="pp-current-price">
+															{{ c }}
+														  </ins>
+												  {% endfor %}
+												</div> <!-- /.tt-product-price -->
+						
+											  </div> <!-- /.tt-pi-price-btn-wrap -->
+											</div> <!-- /.tt-product-info -->
+										  </div>
+										  <!-- End tt-Product -->
+						
 										</div>
-										<!-- End blog list item info -->
-
-									</article>
-									<!-- End blog list item -->
-
-								</div>
-								{% endfor %}
+									  </div>
+									  {% endfor %}
+									</div>
+								  </div>
+								
 								<!-- End blog list -->
 
 
@@ -415,16 +423,15 @@
 										{% for post1 in posts1 %}
 											<div class="sidebar-widget sidebar-categories">
 												<h3 class="sidebar-heading">{{ post1.name }}</h3>
+													<ul class="list-unstyled">
+														{% for category in categories %}	
 
-														{% for post2 in posts2 %}	
-
-															{% if post2.languages|lower  == post1.languages|lower  %}
-																<ul class="list-unstyled">
-																		<li><a href="{% url 'shop'  post1.slug  %}">{{ post2.languages }} <span title="Entries in this category"></span></a></li>
-																</ul>
+															{% if category.category|lower  == post1.languages|lower  %}
+																	<li><a href="{% url 'index1' %}?category={{ category.category}}">{{ category.category }} <span title="Entries in this category"></span></a></li>
 															{% endif %}	
-														{% endfor %}
 
+														{% endfor %}
+													</ul>
 
 
 														
@@ -453,12 +460,14 @@
 								========================= 
 								* Use class "tt-pagin-center" to align center.
 								-->
+							{% if count >= 1 %}	
+								{% if 'q' in request.GET %}
 								<div class="tt-pagination tt-pagin-center anim-fadeinup">
-
-
+									{% url 'index' as index %}
+									{% if request.path == index %}
 									<div class="tt-pagin-prev">
 										{% if posts.has_previous %}
-											<a href="/?page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+											<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
 										{% endif %}	
 									</div>
 
@@ -467,25 +476,33 @@
 									<div class="tt-pagin-numbers">
 										{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
 											{% if posts.number == i %}
-												<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+												<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item 
+												{% if i == posts.nimber %}
+												active
+												{% endif %}
+												"style="font-weight: 500;">{{ i }}</a>
 											{% else %}
 												{% if i  == posts.paginator.ELLIPSIS %}	
-													<a href="" class="tt-pagin-item magnetic-item">{{ i }}</a>
+													<a href="" class="tt-pagin-item magnetic-item" style="font-weight: 500;">{{ i }}</a>
 												{% else %}	
-													<a href="/?page={{i}}" class="tt-pagin-item magnetic-item active">{{ i }}</a>
+													<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
 												{% endif %}
 											{% endif %}	
 										{% endfor %}
+
 									</div>
 
 
 
 									<div class="tt-pagin-next">
 										{% if posts.has_next %}
-											<a href="/?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+											<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}&category={{ category.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
 										{% endif %}
 									</div>
+									{% endif %}
 								</div>
+								{% endif %}
+							{% endif %}	
 								<!-- End tt-pagination -->
 
 							</div> <!-- /.tt-section-inner -->

@@ -33,7 +33,7 @@ class Post(models.Model):
     img = models.ImageField(upload_to='img/', default='img/img.jpg', null=True, blank= True)
     down = models.FileField(upload_to='media')
     life = models.CharField(max_length=255)
-    category = models.CharField(max_length=255)
+    category = models.ForeignKey(ManyCategory, on_delete=models.CASCADE)
     tags = models.ManyToManyField(ManyTags, blank=True)
     resolution = models.BooleanField(default=False)
     browsers = models.ManyToManyField(ManyBrowzers, blank=True)
