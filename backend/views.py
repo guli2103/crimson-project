@@ -36,7 +36,7 @@ def index(request):
         else:
             posts = Post.objects.filter(category__category = category )
             count = Post.objects.all().order_by("-date1").count()        
-    paginator = Paginator(posts, 3 ) 
+    paginator = Paginator(posts, 1 ) 
     page_number = request.GET.get('page', 1)
     project_pagination = paginator.get_page(page_number)
     totalpages = project_pagination.paginator.num_pages

@@ -504,6 +504,7 @@
 																<div class="tt-pagin-numbers">
 																	{% url 'details' as details %}
 																	{% if request.path == details %}
+
 																		{% if posts.has_previous %}
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
 																		{% endif %}	
@@ -529,8 +530,9 @@
 																		{% if posts.has_next %}
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}&category={{ category.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
 																		{% endif %}	
-																	{% endif %}
 
+																	{% endif %}
+																	{% endif %}
 																</div>
 													</div>
 												{% else %}	
@@ -539,17 +541,15 @@
 														{% if request.path == index %}
 															<div class="tt-pagin-prev">
 																{% if posts.has_previous %}
-																	<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+																	<a href="{% url 'index' %}?page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
 																{% endif %}	
 															</div>
 											
-
-
 															<div class="tt-pagin-numbers">
 
 																	{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
 																		{% if posts.number == i %}
-																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item 
+																			<a href="{% url 'index' %}?page={{i}}" class="tt-pagin-item magnetic-item 
 																			{% if i == posts.number %}
 																			active
 																			{% endif %}
@@ -558,26 +558,25 @@
 																			{% if i  == posts.paginator.ELLIPSIS %}	
 																				<a href="" class="tt-pagin-item magnetic-item" style="font-weight: 500;">{{ i }}</a>
 																			{% else %}	
-																				<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
+																				<a href="{% url 'index' %}?page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
 																			{% endif %}
 																		{% endif %}	
 																	{% endfor %}
 
 															</div>
 
-
-
 															<div class="tt-pagin-next">
 																{% if posts.has_next %}
-																	<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+																	<a href="{% url 'index' %}?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
 																{% endif %}
 															</div>
 
+															{% else %}
 
-														{% else %}
 															<div class="tt-pagin-numbers">
 																{% url 'details' as details %}
 																{% if request.path == details %}
+
 																	{% if posts.has_previous %}
 																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
 																	{% endif %}	
@@ -585,7 +584,7 @@
 
 																	{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
 																		{% if posts.number == i %}
-																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item 
+																			<a href="{% url 'index' %}?page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item 
 																			{% if i == posts.number %}
 																			active
 																			{% endif %}
@@ -608,7 +607,7 @@
 																		
 													</div>
 												{% endif %}	
-											
+													{% endif %}
 											{% else %}
 												<!-- empty-->
 
@@ -619,10 +618,7 @@
 							</div> <!-- /.tt-section-inner -->
 						</div>
 						<!-- End tt-section -->
-
-
-						<!-- =======================
-						///// Begin tt-section /////
+						
 						============================ 
 						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
 						-->
