@@ -295,11 +295,26 @@
 							=============================== 
 							Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
 							-->
-							<div class="ph-caption">
-								<h1 class="ph-caption-title ph-appear">All Projects</h1>
-								<div class="ph-caption-title-ghost ph-appear">SUBUX</div>
-								<div class="ph-caption-subtitle ph-appear">Web Design</div>
-							</div> 
+							{% if 'q' in request.GET %}
+								{% url 'index' as index %}
+								{% if request.path == index %}
+									<div class="ph-caption">
+										<h1 class="ph-caption-title ph-appear"> All Projects</h1>
+										<div class="ph-caption-title-ghost ph-appear">SUBUX</div>
+										<div class="ph-caption-subtitle ph-appear">Web Design</div>
+									</div>
+								{% else %}
+									{% if categories.category|lower  == posts1.languages|lower  %}
+										<div class="ph-caption">
+											<h1 class="ph-caption-title ph-appear"> {{ categories.category }} Projects</h1>
+											<div class="ph-caption-title-ghost ph-appear">SUBUX</div>
+											<div class="ph-caption-subtitle ph-appear">Web Design</div>
+										</div>
+									{% endif %}
+
+								{% endif %}	
+							{% endif %}
+
 							<!-- End page header caption -->
 
 						</div> <!-- /.page-header-inner -->
