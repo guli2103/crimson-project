@@ -597,18 +597,21 @@
 								  </div> -->
 			
 								  <h3 class="tt-product-title"><a href="{% url 'details' post.slug %}" title="{{ post.name|title }}">{{ post.name|title }}</a></h3>
-			
+								  	
 								  <div class="tt-pi-price-btn-wrap">
-									<div class="tt-product">
-									  <!-- <bdi>$25.00</bdi> -->
-									  {% for c in post.category.all %}
-											<ins class="pp-current-price">
-												{{ c }}
-									  		</ins>
-									  {% endfor %}
+									<div class="tt-product-price">
+										<ins class="pp-current-price">
+											{{ post.category }}
+										</ins>
+										<!-- <ins class="pp-current-price"><bdi>$21.00</bdi></ins>
+										<del class="pp-old-price"><bdi>$25.00</bdi></del> -->
 									</div> <!-- /.tt-product-price -->
-			
-								  </div> <!-- /.tt-pi-price-btn-wrap -->
+
+									<div class="tt-product-buttons">
+										<a href=" {{ post.down.url }}"  download="{{ post.down.url }} class="sp-adc-btn-text" > Download </a>
+										<!-- <a href="shop-single.html" class="tt-product-btn tt-product-sel-opt-btn"><span>Select Options</span></a> -->
+									</div> <!-- /.tt-product-buttons -->
+								</div> <!-- /.tt-pi-price-btn-wrap -->
 								</div> <!-- /.tt-product-info -->
 							  </div>
 							  <!-- End tt-Product -->

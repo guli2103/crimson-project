@@ -144,12 +144,14 @@
 												* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
 												* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
 												-->
+												
 												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
 													<div class="tt-form-btn-inside">
 														<input name="q" class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
 														<button type="submit"><i class="fas fa-search"></i></button>
 													</div>
 												</form>
+
 												 <!-- End form -->
 												
 											</div> <!-- /.tt-search-inner -->
@@ -295,25 +297,54 @@
 							=============================== 
 							Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
 							-->
-							{% if 'q' in request.GET %}
-								{% url 'index' as index %}
-								{% if request.path == index %}
-									<div class="ph-caption">
-										<h1 class="ph-caption-title ph-appear"> All Projects</h1>
-										<div class="ph-caption-title-ghost ph-appear">SUBUX</div>
-										<div class="ph-caption-subtitle ph-appear">Web Design</div>
-									</div>
-								{% else %}
-									{% if categories.category|lower  == posts1.languages|lower  %}
-										<div class="ph-caption">
-											<h1 class="ph-caption-title ph-appear"> {{ categories.category }} Projects</h1>
+							
+					
+								<div class="ph-caption">
+									{% if count >= 1 %}
+										{% if 'q' in request.GET %}
+											{% url 'index' as index %}
+											{% if request.path == index %}
+												{% if count == 0 %}
+													<div class="ph-caption-subtitle ph-appear">No Projects</div>
+												{% elif count == 1 %}
+													<div class="ph-caption-subtitle ph-appear">1 Project</div>
+												{% elif count > 1 %}
+													<div class="ph-caption-subtitle ph-appear">{{ count }} Project</div>	
+												{% endif %}
+											{% else %}	
+												{% url 'index1' as index1 %}
+												{% if request.path == index1 %}
+												{% if count == 0 %}
+													<div class="ph-caption-subtitle ph-appear">No Projects</div>
+												{% elif count == 1 %}
+													<div class="ph-caption-subtitle ph-appear">1 Project</div>
+												{% elif count > 1 %}
+													<div class="ph-caption-subtitle ph-appear">{{ count }} Project</div>	
+												{% endif %}
+											{% endif %}
+										{% endif %}
+									{% else %}
+										{% url 'index' as index %}
+										{% if request.path == index %}
+											<h1 class="ph-caption-title ph-appear"> All Projects</h1>
 											<div class="ph-caption-title-ghost ph-appear">SUBUX</div>
 											<div class="ph-caption-subtitle ph-appear">Web Design</div>
-										</div>
+										{% else %}
+											{% url 'index1' as index1 %}
+											{% if request.path == index1 %}
+												<h1 class="ph-caption-title ph-appear"> {{ request.GET.category|capfirst }} </h1>
+											{% endif %}	
+												{% if count == 1 %}
+													<div class="ph-caption-subtitle ph-appear">1 Projects</div>
+												{% elif count > 1 %}
+													<div class="ph-caption-subtitle ph-appear">{{ count }} Project</div>	
+												{% endif %}
+										{% endif %}
 									{% endif %}
-
-								{% endif %}	
-							{% endif %}
+									{% endif %}
+								</div>
+								
+							
 
 							<!-- End page header caption -->
 
@@ -399,24 +430,33 @@
 											  </div> -->
 						
 											  <h3 class="tt-product-title"><a href="{% url 'details' post.slug %}" title="{{ post.name|title }}">{{ post.name|title }}</a></h3>
-						
+											
 											  <div class="tt-pi-price-btn-wrap">
-												<div class="tt-product">
-												  <!-- <bdi>$25.00</bdi> -->
-												  {% for c in post.category.all %}
-														<ins class="pp-current-price">
-															{{ c }}
-														  </ins>
-												  {% endfor %}
+												<div class="tt-product-price">
+													<ins class="pp-current-price">
+														{{ post.category }}
+													</ins>
+													<!-- <ins class="pp-current-price"><bdi>$21.00</bdi></ins>
+													<del class="pp-old-price"><bdi>$25.00</bdi></del> -->
 												</div> <!-- /.tt-product-price -->
-						
-											  </div> <!-- /.tt-pi-price-btn-wrap -->
+
+												<div class="tt-product-buttons">
+													<a href=" {{ post.down.url }}"  download="{{ post.down.url }} class="sp-adc-btn-text" > Download </a>
+													<!-- <a href="shop-single.html" class="tt-product-btn tt-product-sel-opt-btn"><span>Select Options</span></a> -->
+												</div> <!-- /.tt-product-buttons -->
+											</div> 
+
 											</div> <!-- /.tt-product-info -->
 										  </div>
 										  <!-- End tt-Product -->
 						
 										</div>
 									  </div>
+									  {% empty %}
+									  <div class="ph-caption">
+										<div style="left: 550px; top: -1500px; " class="ph-caption-subtitle"  > Nothing found</div>
+									  </div>
+										
 									  {% endfor %}
 									</div>
 								  </div>
@@ -435,20 +475,18 @@
 											
 
 											<!-- Begin sidebar widget -->
-										{% for post1 in posts1 %}
+										{% for post2 in posts2 %}
 											<div class="sidebar-widget sidebar-categories">
-												<h3 class="sidebar-heading">{{ post1.name }}</h3>
+												<h3 class="sidebar-heading">{{ post2.languages }}</h3>	
 													<ul class="list-unstyled">
 														{% for category in categories %}	
-
-															{% if category.category|lower  == post1.languages|lower  %}
+															
+															{% if category.types|lower  == post2.languages|lower  %}
 																	<li><a href="{% url 'index1' %}?category={{ category.category}}">{{ category.category }} <span title="Entries in this category"></span></a></li>
 															{% endif %}	
 
 														{% endfor %}
 													</ul>
-
-
 														
 											</div>
 										{% endfor %}	
@@ -475,7 +513,6 @@
 										<div class="tt-pagination tt-pagin-center anim-fadeinup">
 											{% if count >= 1 %}	
 												{% if 'q' in request.GET %}
-
 													<div class="tt-page-nav tt-pn-scroll">
 														{% url 'index' as index %}
 														{% if request.path == index %}
@@ -550,6 +587,7 @@
 																	{% endif %}
 																</div>
 													</div>
+												
 												{% else %}	
 													<div class="tt-page-nav tt-pn-scroll">
 														{% url 'index' as index %}
@@ -621,8 +659,8 @@
 															</div>
 																		
 													</div>
-												{% endif %}	
-													{% endif %}
+													{% endif %}	
+												{% endif %}
 											{% else %}
 												<!-- empty-->
 
@@ -634,9 +672,7 @@
 						</div>
 						<!-- End tt-section -->
 						
-						============================ 
-						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-						-->
+						
 						<div class="tt-section padding-bottom-xlg-150">
 							<div class="tt-section-inner tt-wrap">
 

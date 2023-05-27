@@ -7,7 +7,7 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    path('', index ),
+    path('', index, name='index' ),
     url(r'^download/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
 
 
