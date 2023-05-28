@@ -305,21 +305,21 @@
 											{% url 'index' as index %}
 											{% if request.path == index %}
 												{% if count == 0 %}
-													<div class="ph-caption-subtitle ph-appear">No Projects</div>
+													<div class="ph-caption-subtitle ph-appear">No results</div>
 												{% elif count == 1 %}
-													<div class="ph-caption-subtitle ph-appear">1 Project</div>
+													<div class="ph-caption-subtitle ph-appear">1 results</div>
 												{% elif count > 1 %}
-													<div class="ph-caption-subtitle ph-appear">{{ count }} Project</div>	
+													<div class="ph-caption-subtitle ph-appear">{{ count }} results</div>	
 												{% endif %}
 											{% else %}	
 												{% url 'index1' as index1 %}
 												{% if request.path == index1 %}
 												{% if count == 0 %}
-													<div class="ph-caption-subtitle ph-appear">No Projects</div>
+													<div class="ph-caption-subtitle ph-appear">No results</div>
 												{% elif count == 1 %}
-													<div class="ph-caption-subtitle ph-appear">1 Project</div>
+													<div class="ph-caption-subtitle ph-appear">1 results</div>
 												{% elif count > 1 %}
-													<div class="ph-caption-subtitle ph-appear">{{ count }} Project</div>	
+													<div class="ph-caption-subtitle ph-appear">{{ count }} results</div>	
 												{% endif %}
 											{% endif %}
 										{% endif %}
@@ -454,8 +454,16 @@
 									  </div>
 									  {% empty %}
 									  <div class="ph-caption">
-										<div style="left: 550px; top: -1500px; " class="ph-caption-subtitle"  > Nothing found</div>
+										<div style="left: 550px; top: -250px; " class="ph-caption-subtitle"  > Nothing found</div>
 									  </div>
+									  <div style="left: -80px;" class="tt-page-nav tt-pn-scroll">
+										<a href="{% url 'about' %}" class="tt-pn-link anim-fadeinup">
+											<div class="tt-pn-title">Projects</div>
+											<div class="tt-pn-hover-title">Projects</div>
+										</a> <!-- /.tt-pn-link -->
+	
+										<div class="tt-pn-subtitle anim-fadeinup">Selected Works</div>
+									</div>
 										
 									  {% endfor %}
 									</div>

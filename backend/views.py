@@ -23,7 +23,7 @@ def index(request):
             q = request.GET['q']
             post =  Q(Q(name__icontains=q)|Q(username__icontains=q)|Q(category__category__icontains=q))
             posts = Post.objects.filter(post)
-            count = Post.objects.all().filter(post)
+            count = Post.objects.all().filter(post).count()
         else:
             posts = Post.objects.all().order_by("-date1")
             count = Post.objects.all().order_by("-date1").count()
@@ -84,7 +84,7 @@ def index1(request):
         else:
             posts = Post.objects.filter(category__category = category )
             count = Post.objects.filter(category__category = category ).count()        
-    paginator = Paginator(posts, 2 ) 
+    paginator = Paginator(posts, 1 ) 
     page_number = request.GET.get('page', 1)
     project_pagination = paginator.get_page(page_number)
     totalpages = project_pagination.paginator.num_pages
