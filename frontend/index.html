@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="{% static 'vendor/fontawesome/css/fontawesome-all.min.css' %}"> <!-- Font Icons CSS (https://fontawesome.com) Free version! -->
 		<link rel="stylesheet" href="{% static 'vendor/swiper/css/swiper-bundle.min.css' %}"> <!-- Swiper CSS (https://swiperjs.com/) -->
 		<link rel="stylesheet" href="{% static 'vendor/lightgallery/css/lightgallery.min.css' %}"> <!-- lightGallery CSS (http://sachinchoolur.github.io/lightGallery) -->
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Template master CSS -->
 		<link rel="stylesheet" href="{% static 'css/helper.css' %}">
 		<link rel="stylesheet" href="{% static 'css/shop.css' %}"> <!-- Note: Used on shop-related pages only! -->
@@ -495,7 +495,7 @@
 														{% for category in categories %}	
 															
 															{% if category.types|lower  == post2.languages|lower  %}
-																	<li><a href="{% url 'index1' %}?category={{ category.category}}">{{ category.category }} <span title="Entries in this category"></span></a></li>
+																	<li><a href="{% url 'index' %}index1/?category={{ category.category}}">{{ category.category }} <span title="Entries in this category"></span></a></li>
 															{% endif %}	
 
 														{% endfor %}
@@ -530,16 +530,12 @@
 														{% url 'index' as index %}
 														{% if request.path == index %}
 															
-															<div>
-																<div class="tt-pagin-prev">
-																	{% if posts.has_previous %}
-																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
-																	{% endif %}	
-																</div>
-												
+															<div class="tt-pagin-numbers" >
 																
-
-																<div class="tt-pagin-numbers">
+																		{% if posts.has_previous %}
+																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+																		{% endif %}	
+										
 
 																		{% if posts.number|add:'-3' > 1 %}
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
@@ -566,15 +562,15 @@
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item"  > {{ posts.paginator.num_pages }} </a>
 																		{% endif %}
 
-																</div>
+														
 
 																
 
-																<div class="tt-pagin-next">
-																	{% if posts.has_next %}
-																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
-																	{% endif %}
-																</div>
+														
+																		{% if posts.has_next %}
+																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+																		{% endif %}
+																	
 															</div>
 															{% else %}
 																<div class="tt-pagin-numbers">
@@ -582,22 +578,22 @@
 																	{% if request.path == index1 %}
 
 																		{% if posts.has_previous %}
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
 																		{% endif %}	
 
 																		{% if posts.number|add:'-3' > 1 %}
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
 																		{% endif %}
 																
 
 																		{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
 																			{% if posts.number == i %}
-																				<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item active "style="font-weight: 500;">{{ i }}</a>
+																				<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item active "style="font-weight: 500;">{{ i }}</a>
 																			{% else %}
 																				{% if i  == posts.paginator.ELLIPSIS %}	
 																					<a href="" class="tt-pagin-item magnetic-item" style="font-weight: 500;">{{ i }}</a>
 																				{% elif i > posts.number|add:'-3' and i < posts.number|add:'3'  %}	
-																					<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item "style=font-weight: 500;">{{ i }}</a>
+																					<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item "style=font-weight: 500;">{{ i }}</a>
 																				{% else %}
 																					<!-- empty	 -->
 																				{% endif %}
@@ -606,13 +602,13 @@
 																		{% endfor %}
 
 																		{% if posts.paginator.num_pages > posts.number|add:'3'  %}
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item"  > {{ posts.paginator.num_pages }} </a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item"  > {{ posts.paginator.num_pages }} </a>
 																		{% endif %}
 
 																		{% if posts.has_next %}
-																			<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}&category={{ category.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+																			<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{ posts.next_page_number }}&category={{ category.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
 																		{% endif %}	
 
 																	{% endif %}
@@ -624,18 +620,14 @@
 													<div class="tt-page-nav tt-pn-scroll">
 														{% url 'index' as index %}
 														{% if request.path == index %}
-															<div>
-																<div class="tt-pagin-prev">
-																	{% if posts.has_previous %}
-																		<a href="{% url 'index' %}?page={{posts.previous_page_number}}"  class="tt-pagin-item magnetic-item"  style="font-weight: 500;"><i class="fas fa-chevron-left"></i></a>
-																	{% endif %}	
+															<div class="tt-pagin-numbers">
 																
-																</div>
-
+																		{% if posts.has_previous %}
+																			<a href="{% url 'index' %}?page={{posts.previous_page_number}}"  class="tt-pagin-item magnetic-item"  style="font-weight: 500;"><i class="fas fa-chevron-left"></i></a>
+																		{% endif %}	
+															
 																
-												
-																<div class="tt-pagin-numbers">
-
+											
 																		{% if posts.number|add:'-3' > 1 %}
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item" style="font-weight: 500;" > &hellip; </a>
 																		{% endif %}
@@ -666,15 +658,14 @@
 																			<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item" style="font-weight: 500;" > {{ posts.paginator.num_pages }} </a>
 																		{% endif %}
 
-																</div>
+															
 
 																
 
-																<div  class="tt-pagin-next">
-																	{% if posts.has_next %}
-																		<a href="{% url 'index' %}?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item" style="font-weight: 500;" ><i class="fas fa-chevron-right"></i></a>
-																	{% endif %}
-																</div>
+																		{% if posts.has_next %}
+																			<a href="{% url 'index' %}?page={{ posts.next_page_number }}" class="tt-pagin-item tt-pagin-next magnetic-item" style="font-weight: 500;" ><i class="fas fa-chevron-right"></i></a>
+																		{% endif %}
+																
 															
 															</div>	
 															{% else %}
@@ -684,16 +675,16 @@
 																{% if request.path == index1 %}
 
 																	{% if posts.has_previous %}
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{posts.previous_page_number}}&category={{ category.category }}"  class="tt-pagin-item magnetic-item"  ><i class="fas fa-chevron-left"></i></a>
+																		<a href="{% url 'index' %}index1/?page={{posts.previous_page_number}}&category={{ request.GET.category }}"  class="tt-pagin-item magnetic-item"  ><i class="fas fa-chevron-left"></i></a>
 																	{% endif %}	
 
 																	{% if posts.number|add:'-3' > 1 %}
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
+																		<a href="{% url 'index' %}index1/?page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
 																	{% endif %}
 
 																	{% for i in page_range|default_if_none:posts.paginator.get_elided_page_range %} 
 																		{% if posts.number == i %}
-																			<a href="{% url 'index1' %}?page={{i}}&category={{ category.category }}" class="tt-pagin-item magnetic-item 
+																			<a href="{% url 'index' %}index1/?page={{i}}&category={{ request.GET.category }}" class="tt-pagin-item magnetic-item 
 																			{% if i == posts.number %}
 																			active
 																			{% endif %}
@@ -702,7 +693,7 @@
 																			{% if i  == posts.paginator.ELLIPSIS %}	
 																				<a href="" class="tt-pagin-item magnetic-item" style="font-weight: 500;">{{ i }}</a>
 																			{% elif i > posts.number|add:'-3' and i < posts.number|add:'3'  %}	
-																				<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item "style=font-weight: 500;">{{ i }}</a>
+																				<a href="{% url 'index' %}index1/?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item "style=font-weight: 500;">{{ i }}</a>
 																			{% else %}
 																				<!-- empty	 -->
 																			{% endif %}
@@ -711,13 +702,13 @@
 																	{% endfor %}
 
 																	{% if posts.paginator.num_pages > posts.number|add:'3'  %}
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item"  > {{ posts.paginator.num_pages }} </a>
+																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.number|add:'-3' }}" class="tt-pagin-item magnetic-item"  > &hellip; </a>
+																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{i}}" class="tt-pagin-item magnetic-item active"style=font-weight: 500;">{{ i }}</a>
+																		<a href="{% url 'index' %}?q={{ request.GET.q }}&page={{ posts.paginator.num_pages }}" class="tt-pagin-item magnetic-item"  > {{ posts.paginator.num_pages }} </a>
 																	{% endif %}
 
 																	{% if posts.has_next %}
-																		<a href="{% url 'index1' %}?q={{ request.GET.q }}&page={{ posts.next_page_number }}&category={{ category.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+																		<a href="{% url 'index' %}index1/?page={{ posts.next_page_number }}&category={{ request.GET.category }}" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
 																	{% endif %}	
 																{% endif %}
 															</div>
@@ -751,7 +742,7 @@
 										<div class="tt-pn-hover-title">About us</div>
 									</a> <!-- /.tt-pn-link -->
 
-									<div class="tt-pn-subtitle anim-fadeinup">Selected Works</div>
+									<div class="tt-pn-subtitle anim-fadeinup">About Our Team</div>
 
 									<!-- Use if destination page contains page header image -->
 									<div class="tt-pn-image">
@@ -811,8 +802,9 @@
 										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
 										<div class="social-buttons">
 											<ul>
-												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener"><i class='bx bxl-telegram' style='color:#ef1b0e'  ></i></a></li>
-												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+												<li><a href="https://github.com/crimson-projects" class="magnetic-item" target="_blank" rel="noopener"><i class="fa fa-github" ></i></a></li>
+												<li><a href="https://www.instagram.com/subui_ux/" class="magnetic-item" target="_blank" rel="noopener"><i class="fa fa-instagram" ></i></a></li>
+												<li><a href="https://t.me/crimson_wdg" class="magnetic-item" target="_blank" rel="noopener"><i class="fa fa-telegram" ></i></a></li>
 											</ul>
 										</div> <!-- /.social-buttons -->
 									</div> <!-- /.footer-social -->
