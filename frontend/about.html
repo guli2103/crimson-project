@@ -23,6 +23,8 @@
 		<!-- Favicon (http://www.favicon-generator.org/) -->
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
 
 		<!-- Google Analytics - Global site tag (gtag.js) -->
 		<!-- Paste your Google Anaytics code here. -->
@@ -131,39 +133,10 @@
 									<div class="tt-header-tools-item tt-search-trigger-wrap">
 
 										<div class="tt-search-trigger">
-											<div class="tt-hti-btn tt-search-trigger-icon magnetic-item" title="Search">
-												<i class="fas fa-search"></i>
+											<div class="tt-hti-btn tt-search-trigger-icon magnetic-item" onclick="back()" title="Search">
+												back
 											</div>
-										</div> <!-- /.tt-search-trigger -->
-
-										<!-- Begin tt-Search 
-										===================== -->
-										<div class="tt-search">
-											<div class="tt-search-close cursor-close">
-												<div class="bg-noise"></div>
-											</div>
-											<div class="tt-search-inner">
-												<h1 class="tt-search-title tt-search-appear">Search</h1>
-
-												<!-- Begin form (Note: for design purposes only!)
-												================ 
-												* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-												* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
-												-->
-												<form class="tt-search-form tt-search-appear tt-form-minimal tt-form-lg">
-													<div class="tt-form-btn-inside">
-														<input class="tt-form-control" type="text" id="search" placeholder="Type your keywords..." required>
-														<button type="submit"><i class="fas fa-search"></i></button>
-													</div>
-												</form>
-												 <!-- End form -->
-												
-											</div> <!-- /.tt-search-inner -->
-
-											<div class="tt-search-ghost tt-search-appear">Search</div>
-											<div class="tt-search-close-btn hide-cursor" title="Close"><i class="fas fa-times"></i></div>
 										</div>
-										<!-- End tt-Search -->
 
 									</div> 
 									<!-- End header tools item -->
@@ -298,11 +271,7 @@
 
 							<!-- Begin page header image 
 							============================= -->
-							<div class="ph-image">
-								<div class="ph-image-inner">
-									<img src="{% static 'img/page-header/ph-4.jpg' %}" alt="Image">
-								</div>
-							</div>
+							
 							<!-- End page header image -->
 
 							<!-- Begin page header caption
@@ -310,9 +279,9 @@
 							Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
 							-->
 							<div class="ph-caption">
-								<h1 class="ph-caption-title ph-appear">About</h1>
-								<div class="ph-caption-title-ghost ph-appear">About</div>
-								<div class="ph-caption-subtitle ph-appear">About the team</div>
+								<h1 class="ph-caption-title ph-appear">About Us</h1>
+								<div class="ph-caption-title-ghost ph-appear"> Crimson </div>
+								<div class="ph-caption-subtitle ph-appear">About our team</div>
 							</div> 
 							<!-- End page header caption -->
 
@@ -364,7 +333,7 @@
 										* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
 										-->
 										<div class="tt-heading tt-heading-sm margin-bottom-60 anim-fadeinup">
-											<h2 class="tt-heading-title text-gray">The<br class="hide-from-md"> Story</h2>
+											<h2 class="tt-heading-title text-gray">Crimson<br class="hide-from-md"></h2>
 											<!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
 										</div>
 										<!-- End tt-Heading -->
@@ -374,9 +343,9 @@
 									<div class="tt-col-lg-8">
 
 										<div class="text-xxlg font-alter">
-											<p class="anim-fadeinup">Hello, we going manor who did. Do ye is considered occasion directly that. May ecstatic did surprise elegance the ignorant age. Own her miss cold. It so numerous if outlived possession.</p>
+											<p class="anim-fadeinup">Crimson is a web design and development blog that publishes and downloads articles, tutorials about the latest web trends and new opportunities. The Crimson team is dedicated to providing useful, inspiring and innovative content for free. What started as an experimental blog has turned into a fun playground for sharing the passion for web design and web development.</p>
 
-											<p class="anim-fadeinup">Fat new smallness few supposing suspicion two. Course sir awesome <a href="https://1.envato.market/tank" target="_blank" rel="noopener">website teplates</a> add entire design. How one dull get busy dare far. At principle perfectly by sweetness do. As mr started arrival.</p>
+											<p class="anim-fadeinup">The web is innovating every day, pushing the boundaries of how websites are built, from basic structure to the most subtle interaction effects. And here at Crimson, we want to share some.website teplates add entire design. How one dull get busy dare far. At principle perfectly by sweetness do. As mr started arrival.</p>
 										</div>
 
 									</div> <!-- /.tt-col -->
@@ -386,429 +355,6 @@
 						</div>
 						<!-- End tt-section -->
 
-
-						<!-- =======================
-						///// Begin tt-section /////
-						============================ 
-						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-						-->
-						<div class="tt-section">
-							<div class="tt-section-inner">
-
-								<!-- =============================
-								///// Begin content carousel /////
-								==================================
-								* Use class "cc-shifted" to enable shifted style (no effect on small screens!).
-								* Use class "cursor-drag" to enable cursor drag on carousel hover ("data-simulate-touch" attribute must be enabled!).
-								* Use class "cc-scale-down" to enable scale down animation on carousel click.
-								* Use class "cc-pagination-outside" to bring pagination outside.
-								* Use class "cc-hide-pagination" to hide pagination (for desktop only!).
-								* Use class "cc-hide-navigation" to hide navigation arrows.
-								* Available data attributes:
-										data-speed="900"......................(milliseconds)
-										data-autoplay="5000"..................(milliseconds. Note: disabled after user first interactions)
-										data-simulate-touch="true"............(true/false)
-										data-loop="true"......................(true/false)
-										data-pagination-type="bullets"........(bullets/fraction/progressbar)
-								-->
-								<div class="tt-content-carousel cc-shifted cursor-drag cc-scale-down cc-hide-pagination cc-hide-navigation" data-simulate-touch="true" data-speed="900">
-
-									<!-- Begin swiper container -->
-									<div class="swiper">
-
-										<!-- Begin swiper wrapper (required) -->
-										<div class="swiper-wrapper">
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-1.jpg" alt="Image">
-														<!-- <figcaption>Image Caption</figcaption> -->
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-2.jpg" alt="Image">
-														<!-- <figcaption>Image Caption</figcaption> -->
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<video class="tt-cc-video" loop muted preload="metadata" poster="assets/vids/office-team.jpg">
-															<source src="{% static 'vids/office-team.mp4' %}" type="video/mp4">
-															<source src="{% static 'vids/office-team.webm' %}" type="video/webm">
-														</video>
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div> 
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-3.jpg" alt="Image">
-														<!-- <figcaption>Image Caption</figcaption> -->
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-4.jpg" alt="Image">
-														<!-- <figcaption>Image Caption</figcaption> -->
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide">
-												<div class="tt-content-carousel-item">
-													<figure class="cover-opacity-1">
-														<img class="tt-cc-image anim-image-parallax swiper-lazy" src="{% static 'img/low-qlt-thumb.jpg' %}" data-src="assets/img/misc/misc-5.jpg" alt="Image">
-														<!-- <figcaption>Image Caption</figcaption> -->
-													</figure>
-												</div> <!-- /.tt-content-carousel-item -->
-											</div>
-											<!-- End swiper slide -->
-
-										</div>
-										<!-- End swiper wrapper -->
-
-									</div>
-									<!-- End swiper container -->
-
-									<!-- Begin content carousel navigation -->
-									<div class="tt-cc-nav-prev">
-										<div class="tt-cc-nav-arrow magnetic-item"></div>
-									</div>
-									<div class="tt-cc-nav-next">
-										<div class="tt-cc-nav-arrow magnetic-item"></div>
-									</div>
-									<!-- End content carousel navigation -->
-
-									<!-- Content carousel pagination -->
-									<div class="tt-cc-pagination hide-cursor"></div>
-
-								</div>
-								<!-- End content carousel -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
-						<!-- End tt-section -->
-
-
-						<!-- =======================
-						///// Begin tt-section /////
-						============================ 
-						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-						-->
-						<div class="tt-section padding-top-xlg-150 padding-bottom-xlg-200">
-							<div class="tt-section-inner tt-wrap">
-
-								<!-- Begin tt-Heading 
-								====================== 
-								* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
-								* Use class "tt-heading-stroke" to enable stroke style.
-								* Use class "tt-heading-center" to align tt-Heading to center.
-								* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-								-->
-								<div class="tt-heading tt-heading-xxlg tt-heading-stroke tt-heading-center margin-bottom-10-p anim-fadeinup">
-									<h3 class="tt-heading-subtitle text-gray">What We Do</h3>
-									<h2 class="tt-heading-title">Services</h2>
-								</div>
-								<!-- End tt-Heading -->
-
-								<!-- Begin accordion 
-								===================== 
-								* Use class "tt-ac-sm", "tt-ac-lg", "tt-ac-xlg" or "tt-ac-xxlg" to set accordion size.
-								* Use class "tt-ac-borders" to enable borders.
-								* Add class "is-open" to the "tt-accordion-content" to make this content open by default.
-								-->
-								<div class="tt-accordion tt-ac-xlg tt-ac-borders">
-									<div class="tt-accordion-item anim-fadeinup">
-										<div class="tt-accordion-heading">
-											<h3 class="tt-ac-head-title">UX / Research</h3>
-											<div class="tt-accordion-subtext">Mauris mauris ante</div>
-											<div class="tt-accordion-caret-wrap">
-												<div class="tt-accordion-caret magnetic-item"></div>
-											</div>
-										</div> <!-- /.tt-accordion-heading -->
-										<div class="tt-accordion-content max-width-800">
-											<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-											ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-											amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-											odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-										</div> <!-- /.tt-accordion-content -->
-									</div> <!-- /.tt-accordion-item -->
-
-									<div class="tt-accordion-item anim-fadeinup">
-										<div class="tt-accordion-heading">
-											<h3 class="tt-ac-head-title">Digital Strategy</h3>
-											<div class="tt-accordion-subtext">Vivamus nisi</div>
-											<div class="tt-accordion-caret-wrap">
-												<div class="tt-accordion-caret magnetic-item"></div>
-											</div>
-										</div> <!-- /.tt-accordion-heading -->
-										<div class="tt-accordion-content max-width-800">
-											<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-											ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-											amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-											odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-										</div> <!-- /.tt-accordion-content -->
-									</div> <!-- /.tt-accordion-item -->
-
-									<div class="tt-accordion-item anim-fadeinup">
-										<div class="tt-accordion-heading">
-											<h3 class="tt-ac-head-title">Branding</h3>
-											<div class="tt-accordion-subtext">Nam min proin eget</div>
-											<div class="tt-accordion-caret-wrap">
-												<div class="tt-accordion-caret magnetic-item"></div>
-											</div>
-										</div> <!-- /.tt-accordion-heading -->
-										<div class="tt-accordion-content max-width-800">
-											<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-											ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-											amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-											odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-										</div> <!-- /.tt-accordion-content -->
-									</div> <!-- /.tt-accordion-item -->
-
-									<div class="tt-accordion-item anim-fadeinup">
-										<div class="tt-accordion-heading">
-											<h3 class="tt-ac-head-title">Marketing</h3>
-											<div class="tt-accordion-subtext">Condimentum sit amet</div>
-											<div class="tt-accordion-caret-wrap">
-												<div class="tt-accordion-caret magnetic-item"></div>
-											</div>
-										</div> <!-- /.tt-accordion-heading -->
-										<div class="tt-accordion-content max-width-800">
-											<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-											ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-											amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-											odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-										</div> <!-- /.tt-accordion-content -->
-									</div> <!-- /.tt-accordion-item -->
-
-								</div>
-								<!-- End accordion -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
-						<!-- End tt-section -->
-
-
-						<!-- =======================
-						///// Begin tt-section /////
-						============================ 
-						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-						-->
-						<div class="tt-section padding-top-xlg-150 padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p bg-white-accent-2">
-							<div class="tt-section-inner tt-wrapp">
-
-								<!-- Begin testimonials slider 
-								===============================
-								* Use class "text-center" to align text to the center.
-								* Use class "cursor-drag" to enable cursor drag on carousel hover ("data-simulate-touch" attribute must be enabled!).
-								* Use class "ts-hide-pagination" to hide pagination (for desktop only!).
-								* Use class "ts-hide-navigation" to hide navigation arrows.
-								* Use class "ts-full-width" to enable full width slider.
-								* Available data attributes:
-										data-speed="900"......................(milliseconds)
-										data-autoplay="5000"..................(milliseconds. Note: disabled after user first interactions)
-										data-simulate-touch="true"............(true/false)
-										data-loop="true"......................(true/false)
-								-->
-								<div class="tt-testimonials-slider text-center cursor-drag ts-scale-down ts-hide-navigation anim-fadeinup" data-loop="true" data-simulate-touch="true" data-speed="900">
-
-									<!-- Begin swiper container -->
-									<div class="swiper">
-
-										<!-- Begin swiper wrapper (required) -->
-										<div class="swiper-wrapper">
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide font-alter">
-												<div class="tt-ts-item">
-													<div class="tt-ts-text">
-														"One of the best template I've ever had. I love it! It's fully customizable, well coded, fast and responsive - fitting for all kind of devices."
-													</div>
-													<div class="tt-ts-subtext">- Wironimo</div>
-												</div>
-											</div> 
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide font-alter">
-												<div class="tt-ts-item">
-													<div class="tt-ts-text">
-														"Brilliant template. Tons of options, many concepts, design flexibility, code quality, explanatory comments in each section for easy styling."
-													</div>
-													<div class="tt-ts-subtext">- Gneto</div>
-												</div>
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide font-alter">
-												<div class="tt-ts-item">
-													<div class="tt-ts-text">
-														"Easy to customize, plenty of choices to display your portfolio, fast loading times. Excellent support."
-													</div>
-													<div class="tt-ts-subtext">- Brendak</div>
-												</div>
-											</div>
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide font-alter">
-												<div class="tt-ts-item">
-													<div class="tt-ts-text">
-														"Very nice design and well organised and commented code. Also good customer service."
-													</div>
-													<div class="tt-ts-subtext">- Gazzzzz</div>
-												</div>
-											</div> 
-											<!-- End swiper slide -->
-
-											<!-- Begin swiper slide 
-											======================== -->
-											<div class="swiper-slide font-alter">
-												<div class="tt-ts-item">
-													<div class="tt-ts-text">
-														"I founded a bug on Iphone and Ipad and the author fixed very quickly. I appreciated his efforts and his quickness in solving the problem."
-													</div>
-													<div class="tt-ts-subtext">- Admanente</div>
-												</div>
-											</div> 
-											<!-- End swiper slide -->
-
-										</div>
-										<!-- End swiper wrapper -->
-
-									</div>
-									<!-- End swiper container -->
-
-									<!-- Testimonials slider navigation (arrows) -->
-									<div class="tt-ts-nav-prev">
-										<div class="tt-ts-nav-arrow magnetic-item"></div>
-									</div>
-									<div class="tt-ts-nav-next">
-										<div class="tt-ts-nav-arrow magnetic-item"></div>
-									</div>
-
-									<!-- Testimonials slider pagination -->
-									<div class="tt-ts-pagination hide-cursor"></div>
-
-								</div>
-								<!-- End testimonials slider -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
-						<!-- End tt-section -->
-
-
-						<!-- =======================
-						///// Begin tt-section /////
-						============================ 
-						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-						-->
-						<div class="tt-section padding-top-xlg-150 padding-bottom-xlg-150">
-							<div class="tt-section-inner tt-wrap">
-
-									<div class="tt-row">
-										<div class="tt-col-lg-4 padding-right-md-5-p">
-
-											<!-- Begin tt-Heading 
-											====================== 
-											* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
-											* Use class "tt-heading-stroke" to enable stroke style.
-											* Use class "tt-heading-center" to align tt-Heading to center.
-											* Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
-											-->
-											<div class="tt-heading tt-heading-sm margin-bottom-60 anim-fadeinup">
-												<h2 class="tt-heading-title text-gray">Honors &amp;<br class="hide-from-md"> Mentions</h2>
-												<!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
-											</div>
-											<!-- End tt-Heading -->
-
-										</div> <!-- /.tt-col -->
-
-										<div class="tt-col-lg-4">
-
-											<ul class="list-styled">
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">World Brand Design Awards</a></h5>
-													<p class="text-gray">Donec fringilla tortor at eros.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">World Design Awards</a></h5>
-													<p class="text-gray">Cras quis hendrerit nulla.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">Product Design Awards</a></h5>
-													<p class="text-gray">Pellentesque et fermentum.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">Lighting Design Awards</a></h5>
-													<p class="text-gray">In non leo quis risus blandit.</p>
-												</li>
-											</ul>
-
-										</div> <!-- /.tt-col -->
-
-										<div class="tt-col-lg-4">
-
-											<ul class="list-styled">
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">Red Dot Award Design Concept</a></h5>
-													<p class="text-gray">Curabitur rhoncus ligula.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">One Color Award</a></h5>
-													<p class="text-gray">Orci varius natoque penatibus.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">London International Creative Competition</a></h5>
-													<p class="text-gray">Aliquam tellus leone.</p>
-												</li>
-												<li class="anim-fadeinup">
-													<h5 class="no-margin"><a href="https://1.envato.market/tank" class="tt-link" target="_blank" rel="noopener">Green Concept Award</a></h5>
-													<p class="text-gray">Phasellus a interdum tellus.</p>
-												</li>
-											</ul>
-
-										</div> <!-- /.tt-col -->
-									</div> <!-- /.tt-row -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
-						<!-- End tt-section -->
 
 
 						<!-- =======================
@@ -890,8 +436,8 @@
 										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
 										<div class="social-buttons">
 											<ul>
-												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
-												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener"><i class="fa fa-telegram" style="font-size:24px"></i></a></li>
+												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener"><i class="fa fa-instagram" style="font-size:24px" ></i></a></li>
 											</ul>
 										</div> <!-- /.social-buttons -->
 									</div> <!-- /.footer-social -->
@@ -923,6 +469,12 @@
 		===================== -->
 
 		<!-- Core JS -->
+
+		<script>
+			function back(){
+				window.history.back()
+			}
+		</script>
 		<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script> <!-- jquery JS (https://jquery.com) -->
 
 		<!-- Libs and Plugins JS -->
